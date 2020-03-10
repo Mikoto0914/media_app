@@ -5,6 +5,7 @@
       
       <% if user_signed_in? %>
         <div class="user_nav grid-6">
+          <li><%= current_user.name %>さんがログインしています</li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
           <li><a class="post" href="/posts/new">投稿する</a></li>
         </div>
