@@ -1,3 +1,4 @@
+<%= render 'commons/scrollspy' %>
 <h3><span class="blue-text text-darken-2">ユーザ編集</span></h3>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -32,7 +33,7 @@
   </div>
 
   <div class="actions">
-    <a class="waves-effect waves-light btn"><%= f.submit "パスワードを変更する" ,class: "white-text"%></a>
+    <%= f.submit "パスワードを変更する" ,class: "btn white-text"%>
   </div>
   
 <% end %>
@@ -55,4 +56,5 @@
   <div class="modal-footer">
       <%= button_to "削除する", registration_path(resource_name), method: :delete ,class:"waves-light btn red lighten-2" %>
   </div>
+</div>
 </div>
