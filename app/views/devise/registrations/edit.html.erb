@@ -1,60 +1,81 @@
-<%= render 'commons/scrollspy' %>
-<h3><span class="blue-text text-darken-2">ユーザ編集</span></h3>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>（変更しない場合は空白のままにします）</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> 文字以上</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "パスワードを変更する" ,class: "btn white-text"%>
+<div class="row">
+  <div class="col hide-on-small-only m3 l2">
+    <ul class="section table-of-contents">
+      <li><%= link_to "プロフィール", '/user', class: 'post' %></li>
+      <li><%= link_to "アカウント設定", edit_user_registration_path, class: 'post' %></li>
+    </ul>
   </div>
   
-<% end %>
+  <div class="col s12 m9">
+    
+    <h4><span class="blue-text text-darken-2">アカウント設定</span></h4>
+    
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <div class="form-group">
+        <%= f.label "ユーザー名" %>
+        <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+      </div>
+    
+      <%= f.file_field :avatar %>
+      
+      <div class="actions">
+          <%= f.submit "Update" %>
+      </div>
+        
+    
+    <h5><span class="blue-text text-darken-2">パスワード変更</span></h5>
+    
+      
+    
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+    
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+    
+      <div class="field">
+        <%= f.label "新しいパスワード" %> <i>（変更しない場合は入力しないでください）</i>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+        <% if @minimum_password_length %>
+          <em>（英数字<%= @minimum_password_length %> 文字以上）</em>
+        <% end %>
+      </div>
+    
+      <div class="field">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+    
+      <div class="field">
+        <%= f.label :current_password %><br />
+        <%= f.password_field :current_password, autocomplete: "current-password" %>
+      </div>
+    
+      <div class="actions">
+        <%= f.submit "パスワードを変更する" ,class: "btn white-text"%>
+      </div>
+      <br>
+    <% end %>
 
-<h4><span class="red-text text-darken-2">アカウント削除</span></h4>
-
-<button data-target="modal1" class="btn modal-trigger red lighten-2">削除する</button>
-
-<script>
-  $(document).ready(function(){
-      $('.modal').modal();
-  });
-</script>
-
-<div id="modal1" class="modal">
-  <div class="modal-content">
-    <h4><span class="red-text text-darken-2">アカウント削除</span></h4>
-    <p>アカウントを削除するとユーザ情報が全て削除されます。この処理は取り消しできません。</p>
-  </div>
-  <div class="modal-footer">
-      <%= button_to "削除する", registration_path(resource_name), method: :delete ,class:"waves-light btn red lighten-2" %>
-  </div>
-</div>
+    <h5><span class="red-text text-darken-2">アカウント削除</span></h5>
+    <button data-target="modal1" class="btn modal-trigger red lighten-2">削除する</button>
+    
+    <script>
+      $(document).ready(function(){
+          $('.modal').modal();
+      });
+    </script>
+      
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4><span class="red-text text-darken-2">本当に削除しますか？</span></h4>
+        <p>アカウントを削除するとユーザ情報が全て削除されます。この処理は取り消しできません。</p>
+      </div>
+      <div class="modal-footer">
+        <%= button_to "削除する", registration_path(resource_name), method: :delete ,class:"waves-light btn red lighten-2" %>
+      </div>
+    </div>
 </div>
