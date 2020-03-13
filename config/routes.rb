@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'user' => 'users#index'
   get '/'    => 'posts#index'
   
   devise_for :users, skip: :all
@@ -13,7 +12,7 @@ Rails.application.routes.draw do
     delete 'signup'             => 'devise/registrations#destroy', as: :destroy_user_registration
     put    'signup'             => 'devise/registrations#update',  as: :update_user_registration
     get    'signup/cancel'      => 'devise/registrations#cancel',  as: :cancel_user_registration
-    get    'user/account'       => 'devise/registrations#edit',    as: :edit_user_registration
+    get    'user'               => 'devise/registrations#edit',    as: :edit_user_registration
     patch  'user/profile'       => 'devise/registrations#update',  as: nil
     get    'user/password'      => 'devise/passwords#new',         as: :new_user_password
     post   'user/password'      => 'devise/passwords#create',      as: :user_password
