@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
   
   def new
-   
+    @post=Post.new
   end
   
   def show
@@ -15,6 +15,7 @@ class PostsController < ApplicationController
   def create
     @post=Post.new(content:params[:content])
     if @post.save
+      flash[:notice] = "投稿を作成しました"
       redirect_to("/")
     else
       render("posts/new")
@@ -40,6 +41,7 @@ class PostsController < ApplicationController
   def destroy
     @post=Post.find_by(id:params[:id])
     @post.destroy
+    flash[:notice] = "投稿を削除しました"
     redirect_to("/")
   end
   
