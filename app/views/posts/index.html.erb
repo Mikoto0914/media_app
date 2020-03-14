@@ -6,14 +6,33 @@
           </div>
       </div>
 
-
+<% @posts.each do |post| %>
 <ul class="collection">
   <li class="collection-item avatar">
     <img src="sample.png" alt="" class="circle">
     <span class="title">Title</span>
     <p>First Line <br>
-       Second Line
+       
+          <div class="posts-index-item">
+            <%= link_to(post.content, "/") %>
+          </div>
+        
     </p>
     <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
   </li>
 </ul>
+<% end %>
+<div class="row">
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-image">
+          <img src="sample.png" >
+          <span class="card-title">Card Title</span>
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+        </div>
+      </div>
+    </div>
+  </div>
