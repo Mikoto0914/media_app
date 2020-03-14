@@ -18,7 +18,7 @@
           <li>
             <a class="dropdown-trigger" href="#!" data-target="dropdown1">
               <div class="chip">
-                <img src="sample.png">
+                <%= image_tag '/default.png' %>
                 <% if current_user.name==nil %>
                   <%= current_user.email %>
                 <% else %>
