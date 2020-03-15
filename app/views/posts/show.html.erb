@@ -12,7 +12,7 @@
     <br>
    
     <h4><%= @post.title %></h4>
-    <%= @post.content %>
+    <%= markdown(@post.content).html_safe %>
   
   </div>
 </div>
