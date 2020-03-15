@@ -1,23 +1,23 @@
 <div class="container">
-          <div class="input-field">
-            <i class="material-icons prefix">search</i>
-            <input type="text" id="autocomplete-input" class="autocomplete">
-            <label for="autocomplete-input">キーワードを入力</label>
-          </div>
+  <div class="input-field">
+    <i class="material-icons prefix">search</i>
+    <input type="text" id="autocomplete-input" class="autocomplete">
+    <label for="autocomplete-input">キーワードを入力</label>
+  </div>
       
-
-
 <ul class="collection">
   <% @posts.each do |post| %>
     <li class="collection-item avatar">
-      <%= image_tag '/default.png' ,class: 'circle responsive-img' %>
-      <span class="title truncate"><%= link_to(post.title, "/posts/#{post.id}") %></span>
-      <% if current_user.name==nil %>
-        <%= current_user.email %>
+      <%= link_to image_tag('/default.png', class: 'circle responsive-img'), '/user' %>
+      <span class="title truncate"><%= link_to(post.title, "/posts/#{post.id}", class:'collection-item') %></span>
+      
+      <% if post.user.name.empty? %>
+        <%= link_to post.user.email[/([\w\-.]+)@/, 1], '/user' %>
       <% else %>
-        <%= current_user.name %>
+        <%= link_to post.user.name, '/user' %>
       <% end %>
-      <%= post.created_at %>
+      
+      <%= post.updated_at.strftime("%Y年%m月%d日") %>
       <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
     </li>
   <% end %>
