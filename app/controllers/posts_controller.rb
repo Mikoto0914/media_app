@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   
+  before_action :authenticate_user!, only: [:edit]
+  
   def index
     @posts = Post.all.order(created_at: :desc)
   end
@@ -15,9 +17,9 @@ class PostsController < ApplicationController
   
   def create
     @post=Post.new(
-        title:params[:title],
-        content:params[:content],
-        user_id: current_user.id
+      user_id: current_user.id,
+      title:params[:title],
+      content:params[:content]
     )
     if @post.save
       flash[:notice] = "投稿を作成しました"

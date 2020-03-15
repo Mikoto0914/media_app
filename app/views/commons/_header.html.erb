@@ -19,11 +19,7 @@
             <a class="dropdown-trigger" href="#!" data-target="dropdown1">
               <div class="chip">
                 <%= image_tag '/default.png' %>
-                <% if current_user.name==nil %>
-                  <%= current_user.email %>
-                <% else %>
-                  <%= current_user.name %>
-                <% end %>
+                <%= account_name %>
               </div>
               <i class="material-icons right">arrow_drop_down</i>
             </a>
