@@ -10,10 +10,12 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find_by(id: params[:id])
+    @user = @post.user
   end
   
   def create
     @post=Post.new(
+        title:params[:title],
         content:params[:content],
         user_id: current_user.id
     )
