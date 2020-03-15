@@ -5,5 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :posts
+  
+  def posts
+    return Post.where(user_id: self.id)
+  end
 
 end

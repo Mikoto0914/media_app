@@ -2,23 +2,25 @@
           <div class="input-field">
             <i class="material-icons prefix">search</i>
             <input type="text" id="autocomplete-input" class="autocomplete">
-            <label for="autocomplete-input">search the best</label>
+            <label for="autocomplete-input">キーワードを入力</label>
           </div>
-      </div>
+      
 
-<% @posts.each do |post| %>
+
 <ul class="collection">
-  <li class="collection-item avatar">
-    <%= image_tag '/default.png' ,class: 'circle responsive-img' %>
-    <span class="title"><%= link_to(post.title, "/posts/#{post.id}") %></span>
-    <p>First Line <br>
-       
-          <div class="posts-index-item">
-            
-          </div>
-        
-    </p>
-    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-  </li>
+  <% @posts.each do |post| %>
+    <li class="collection-item avatar">
+      <%= image_tag '/default.png' ,class: 'circle responsive-img' %>
+      <span class="title truncate"><%= link_to(post.title, "/posts/#{post.id}") %></span>
+      <% if current_user.name==nil %>
+        <%= current_user.email %>
+      <% else %>
+        <%= current_user.name %>
+      <% end %>
+      <%= post.created_at %>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+  <% end %>
 </ul>
-<% end %>
+</div>
+
