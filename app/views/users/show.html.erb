@@ -15,9 +15,10 @@
     
     <% if user_signed_in? %>
     <div class="collection">
+      <%= link_to "プロフィール編集", "/users/profile_edit", class: "collection-item center-align" %>
       <%= link_to "アカウント設定", edit_user_registration_path, class: "collection-item center-align" %>
       <%= link_to "記事編集", edit_user_registration_path, class: "collection-item center-align" %>
-      <a href="#!" class="collection-item">Alvin</a>
+      
     </div>
     <% end %>
     

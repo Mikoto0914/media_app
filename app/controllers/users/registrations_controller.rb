@@ -4,6 +4,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+  protected
+  
+  def update_resource(resource, params)
+    @path = Rails.application.routes.recognize_path(request.referer)
+    if @path[:controller] == "users"
+      resource.update_without_password(params)
+    else
+      super
+    end
+  end
+
   # GET /resource/sign_up
   # def new
   #   super

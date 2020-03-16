@@ -1,9 +1,7 @@
-<div class="row">
-        <div class="col hide-on-small-only m3 l2">
-            <ul class="section table-of-contents">
-                <li><%= link_to "プロフィール", '/user', class: 'post' %></li>
-                <li><%= link_to "パスワード", edit_user_registration_path, class: 'post' %></li>
-                <li><a href="#initialization">Intialization</a></li>
-            </ul>
-        </div>
-        <div class="col s12 m9">
+<div class="col hide-on-small-only m3 l2">
+  <ul class="section table-of-contents">
+    <li><%= link_to "マイページ", "/users/#{current_user.id}", class: 'post' %></li>
+    <li><%= link_to "プロフィール編集", "/users/profile_edit", class: 'post' %></li>
+    <li><%= link_to "アカウント設定", edit_user_registration_path, class: 'post' %></li>
+  </ul>
+</div>
