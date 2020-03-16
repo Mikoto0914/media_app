@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
 
   get '/' => 'posts#index'
   
@@ -11,6 +14,7 @@ Rails.application.routes.draw do
   post 'posts/:id/update' => 'posts#update'
   post 'posts/:id/destroy' => 'posts#destroy'
   get  'users/:id'         => 'users#show'
+  
   
   
 end

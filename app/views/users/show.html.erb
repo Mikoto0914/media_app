@@ -5,35 +5,39 @@
         <%= image_tag "/default.png" ,class: "activator responsive-img" %>
       </div>
       <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4"><%= @post.user.name %><i class="material-icons right">expand_less</i></span>
+        <span class="card-title activator grey-text text-darken-4"><%= @user.name %><i class="material-icons right">expand_less</i></span>
       </div>
       <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4"><%= @post.user.name %><i class="material-icons right">expand_more</i></span>
+        <span class="card-title grey-text text-darken-4"><%= @user.name %><i class="material-icons right">expand_more</i></span>
         <p>Here is some more information about this product that is only revealed once clicked on.</p>
       </div>
     </div>
     
-    <% if @post.id==current_user.id %>
+    <% if user_signed_in? %>
     <div class="collection">
-      <%= link_to "アカウント設定", edit_user_registration_path,class: "collection-item center-align" %>
-      <%= link_to "記事編集", edit_user_registration_path,class: "collection-item center-align" %>
-      
+      <%= link_to "アカウント設定", edit_user_registration_path, class: "collection-item center-align" %>
+      <%= link_to "記事編集", edit_user_registration_path, class: "collection-item center-align" %>
       <a href="#!" class="collection-item">Alvin</a>
     </div>
     <% end %>
     
   </div>
   <div class="col s9">
+    <%= render "commons/tabs" %>
     <ul class="collection">
+      
       <% @user.posts.each do |post| %>
         <li class="collection-item avatar">
           <%= link_to image_tag("/default.png", class: "circle responsive-img"), "/users/#{post.id}" %>
           <span class="title"><%= link_to(post.title, "/posts/#{post.id}", class: "black-text") %></span>
-          <p><%= link_to post.user.name, "/users/#{post.id}" %>
-          <%= post.updated_at.strftime("%Y/%m/%d") %></p>
+          <p>
+            <%= link_to post.user.name, "/users/#{post.id}" %>
+            <%= post.updated_at.strftime("%Y/%m/%d") %>
+          </p>
           <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
         </li>
       <% end %>
+      
     </ul>
   </div>
 </div>
