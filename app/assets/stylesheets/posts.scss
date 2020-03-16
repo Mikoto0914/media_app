@@ -6,3 +6,9 @@ ul.center li {
   width: 95%;
   font-weight:bold;
 }
+a {
+  text-decoration:none;
+}
+a:hover {
+  text-decoration:underline;
+}
