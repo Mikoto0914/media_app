@@ -16,7 +16,7 @@
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>（<%= @minimum_password_length %> 文字以上）</em>
+    <em>（英数字<%= @minimum_password_length %> 文字以上）</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
@@ -27,7 +27,7 @@
   </div>
 
   <div class="actions">
-    <a class="waves-effect waves-light btn"><%= f.submit "登録する" ,class: "white-text"%></a>
+    <%= f.submit "登録する" ,class: "btn white-text"%>
   </div>
 <% end %>
 <br>

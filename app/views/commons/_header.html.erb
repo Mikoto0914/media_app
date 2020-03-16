@@ -1,13 +1,29 @@
+<ul id="dropdown1" class="dropdown-content">
+  <li><%= link_to "マイページ", "/user" %></li>
+  <li class="divider"></li>
+  <li><%= link_to "投稿する", "/posts/new", class: 'post' %></li>
+  <li class="divider"></li>
+  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+</ul>
+
 <nav>
   <div class="nav-wrapper">
     <a href="/" class="brand-logo"><i class="material-icons">home</i></a>
-     <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        
+      
       
       <% if user_signed_in? %>
         <div class="user_nav grid-6">
-          <li><%= current_user.name %>さんがログインしています</li>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-          <li><a class="post" href="/posts/new">投稿する</a></li>
+          <li>
+            <a class="dropdown-trigger" href="#!" data-target="dropdown1">
+              <div class="chip">
+                <%= image_tag '/default.png' %>
+                <%= account_name %>
+              </div>
+              <i class="material-icons right">arrow_drop_down</i>
+            </a>
+          </li>
         </div>
         
       <% else %>
@@ -15,9 +31,9 @@
           <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
           <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
         </div>
-
-      <% end %>
         
+      <% end %>
+      
     </ul>
   </div>
 </nav>
