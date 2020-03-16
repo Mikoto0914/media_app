@@ -4,10 +4,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-  has_many :posts
+  validates :name,
+            presence: true,
+            length: { maximum: 16 },
+            format: {
+                with: /\A[a-z0-9]+\z/,
+                message: 'は小文字英数字で入力してください'
+            }       
   
   def posts
     return Post.where(user_id: self.id)
   end
+  
+  has_many :posts
 
 end

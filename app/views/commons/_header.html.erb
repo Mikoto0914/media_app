@@ -1,10 +1,14 @@
-<ul id="dropdown1" class="dropdown-content">
-  <li><%= link_to "マイページ", "/user" %></li>
-  <li class="divider"></li>
-  <li><%= link_to "投稿する", "/posts/new", class: 'post' %></li>
-  <li class="divider"></li>
-  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-</ul>
+<% if user_signed_in? %>
+  <ul id="dropdown1" class="dropdown-content">
+    <li><%= link_to "マイページ", "/users/#{current_user.id}" %></li>
+    <li class="divider"></li>
+    <li><%= link_to "アカウント設定", edit_user_registration_path %></li>
+    <li class="divider"></li>
+    <li><%= link_to "投稿する", "/posts/new" %></li>
+    <li class="divider"></li>
+    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+  </ul>
+<% end %>
 
 <nav>
   <div class="nav-wrapper">
@@ -19,7 +23,7 @@
             <a class="dropdown-trigger" href="#!" data-target="dropdown1">
               <div class="chip">
                 <%= image_tag '/default.png' %>
-                <%= account_name %>
+                <%= current_user.name %>
               </div>
               <i class="material-icons right">arrow_drop_down</i>
             </a>
