@@ -8,10 +8,10 @@
 <ul class="collection">
   <% @posts.each do |post| %>
     <li class="collection-item avatar">
-      <%= link_to image_tag('/default.png', class: 'circle responsive-img'), '/user' %>
-      <span class="title truncate"><%= link_to(post.title, "/posts/#{post.id}", class:'collection-item') %></span>
-      <%= link_to post.user.name, "/users/#{post.id}" %>
-      <%= post.updated_at.strftime("%Y年%m月%d日") %>
+      <%= link_to image_tag("/default.png", class: "circle responsive-img"), "/users/#{post.id}" %>
+      <span class="title truncate"><%= link_to(post.title, "/posts/#{post.id}") %></span>
+      <p></p><%= link_to post.user.name, "/users/#{post.id}" %>
+      <%= post.updated_at.strftime("%Y/%m/%d") %></p>
       <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
     </li>
   <% end %>

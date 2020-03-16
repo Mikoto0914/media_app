@@ -2,7 +2,7 @@
   <div class="card-panel white">
     <div class="chip">
       <%= image_tag '/default.png' %>
-      <%= link_to @post.user.name, '/user' %>
+      <%= link_to @post.user.name, "/users/#{@post.id}" %>
     </div>
     <%= @post.updated_at.strftime("%Y年%m月%d日") %>
     <br>

@@ -22,7 +22,7 @@
           <li>
             <a class="dropdown-trigger" href="#!" data-target="dropdown1">
               <div class="chip">
-                <%= image_tag '/default.png' %>
+                <%= image_tag "/default.png" %>
                 <%= current_user.name %>
               </div>
               <i class="material-icons right">arrow_drop_down</i>
@@ -32,8 +32,8 @@
         
       <% else %>
         <div class="grid-6">
-          <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
-          <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
+          <li><%= link_to "ログイン", new_user_session_path, class: "post" %></li>
+          <li><%= link_to "新規登録", new_user_registration_path, class: "post" %></li>
         </div>
         
       <% end %>
