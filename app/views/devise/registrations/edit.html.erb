@@ -8,23 +8,7 @@
   
   <div class="col s12 m9">
     
-    <h4><span class="blue-text text-darken-2">マイページ</span></h4>
-    
-      <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-          <div class="col s4">
-            <%= image_tag '/default.png' ,class: 'circle responsive-img' %>
-          </div>
-          <div class="col s8">
-            <span class="user-account blue-text text-darken-2">
-              <p><%= current_user.name %></p>
-              <p><%= current_user.email %></p>
-            </span>
-          </div>
-        </div>
-      </div>
-    
-    
+
     <h4><span class="blue-text text-darken-2">アカウント設定</span></h4>
     
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
