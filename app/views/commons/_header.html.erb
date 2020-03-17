@@ -22,7 +22,7 @@
           <li>
             <a class="dropdown-trigger" href="#!" data-target="dropdown1">
               <div class="chip">
-                <%= image_tag "/default.png" %>
+                <%= image_tag "#{current_user.image}" %>
                 <%= current_user.name %>
               </div>
               <i class="material-icons right">arrow_drop_down</i>
