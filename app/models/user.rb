@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
+  
+         
   validates :name,
             presence: true,
             length: { maximum: 16 },
@@ -16,6 +18,7 @@ class User < ApplicationRecord
     return Post.where(user_id: self.id)
   end
   
+  mount_uploader :image, ImageUploader
   has_many :posts
 
 end
