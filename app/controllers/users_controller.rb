@@ -6,8 +6,5 @@ class UsersController < ApplicationController
   
   def profile_edit
   end
-  
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :introduce, :image )
-  end
+
 end

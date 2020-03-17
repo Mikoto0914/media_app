@@ -1,53 +1,60 @@
-<div class="row">
-  <%= render "commons/scrollspy" %>
-  <div class="col s12 m9">
-    
-    <h4><span class="blue-text text-darken-2">アカウント設定</span></h4>
-    
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-        
-    <h5><span class="blue-text text-darken-2">パスワード変更</span></h5>
-    
-      <div class="field">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
- 
-      <div class="field">
-        <%= f.label "新しいパスワード" %> <i>（変更しない場合は入力しないでください）</i>
-        <%= f.password_field :password, autocomplete: "new-password" %>
-        <% if @minimum_password_length %>
-          <em>（英数字<%= @minimum_password_length %> 文字以上）</em>
-        <% end %>
-      </div>
-    
-      <div class="field">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
-    
-      <div class="field">
-        <%= f.label :current_password %>
-        <%= f.password_field :current_password, autocomplete: "current-password" %>
-      </div>
-    
-      <div class="actions">
-        <%= f.submit "パスワードを変更する" ,class: "btn white-text"%>
-      </div>
-      <br>
-    <% end %>
-
-    <h5><span class="red-text text-darken-2">アカウント削除</span></h5>
-    <button data-target="modal1" class="btn modal-trigger red lighten-2">削除する</button>
+<div class="container">
+  <div class="row">
+    <div class="col s3">
       
-    <div id="modal1" class="modal">
-      <div class="modal-content">
-        <h4><span class="red-text text-darken-2">本当に削除しますか？</span></h4>
-        <p>アカウントを削除するとユーザ情報が全て削除されます。この処理は取り消しできません。</p>
-      </div>
-      <div class="modal-footer">
-        <%= button_to "削除する", registration_path(resource_name), method: :delete ,class:"waves-light btn red lighten-2" %>
-      </div>
+      <%= render "commons/profile" %>
+      <%= render "commons/collection" %>
+      
+    </div>
+    <div class="col s9">
+      <h4><span class="blue-text text-darken-2">アカウント設定</span></h4>
+      
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+          
+      <h5><span class="blue-text text-darken-2">パスワード変更</span></h5>
+      
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+   
+        <div class="field">
+          <%= f.label "新しいパスワード" %> <i>（変更しない場合は入力しないでください）</i>
+          <%= f.password_field :password, autocomplete: "new-password" %>
+          <% if @minimum_password_length %>
+            <em>（英数字<%= @minimum_password_length %> 文字以上）</em>
+          <% end %>
+        </div>
+      
+        <div class="field">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+      
+        <div class="field">
+          <%= f.label :current_password %>
+          <%= f.password_field :current_password, autocomplete: "current-password" %>
+        </div>
+      
+        <div class="actions">
+          <%= f.submit "パスワードを変更する" ,class: "btn white-text"%>
+        </div>
+        <br>
+      <% end %>
+  
+      <h5><span class="red-text text-darken-2">アカウント削除</span></h5>
+      <button data-target="modal1" class="btn modal-trigger red lighten-2">削除する</button>
+        
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4><span class="red-text text-darken-2">本当に削除しますか？</span></h4>
+          <p>アカウントを削除するとユーザ情報が全て削除されます。この処理は取り消しできません。</p>
+        </div>
+        <div class="modal-footer">
+          <%= button_to "削除する", registration_path(resource_name), method: :delete ,class:"waves-light btn red lighten-2" %>
+        </div>
+    </div>
   </div>
 </div>
+

@@ -1,4 +1,5 @@
 <div class="row">
+  
   <div class="col s3">
     <div class="card">
       <div class="card-image waves-effect waves-block waves-light">
@@ -9,20 +10,12 @@
       </div>
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4"><%= @user.name %><i class="material-icons right">expand_more</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+        <p><%= simple_format(@user.profile) %></p>
       </div>
     </div>
-    
-    <% if user_signed_in? %>
-    <div class="collection">
-      <%= link_to "プロフィール編集", "/users/profile_edit", class: "collection-item center-align" %>
-      <%= link_to "アカウント設定", edit_user_registration_path, class: "collection-item center-align" %>
-      <%= link_to "記事編集", edit_user_registration_path, class: "collection-item center-align" %>
-      
-    </div>
-    <% end %>
-    
+    <%= render "commons/collection" %>
   </div>
+  
   <div class="col s9">
     <%= render "commons/tabs" %>
     <ul class="collection">
@@ -30,7 +23,9 @@
       <% @user.posts.each do |post| %>
         <li class="collection-item avatar">
           <%= link_to image_tag("#{post.user.image}", class: "circle responsive-img"), "/users/#{post.user.id}" %>
-          <span class="title"><%= link_to(post.title, "/posts/#{post.id}", class: "black-text") %></span>
+          <span class="title">
+            <%= link_to(post.title, "/posts/#{post.id}", class: "black-text") %>
+          </span>
           <p>
             <%= link_to post.user.name, "/users/#{post.user.id}" %>
             <%= post.updated_at.strftime("%Y/%m/%d") %>
