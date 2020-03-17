@@ -1,12 +1,12 @@
 <div class="card">
   <div class="card-image waves-effect waves-block waves-light">
-    <%= image_tag "#{current_user.image}" %>
+    <%= image_tag "#{user.image}" %>
   </div>
   <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4"><%= current_user.name %><i class="material-icons right">expand_less</i></span>
+    <span class="card-title activator grey-text text-darken-4"><%= user.name %><i class="material-icons right">expand_less</i></span>
   </div>
   <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4"><%= current_user.name %><i class="material-icons right">expand_more</i></span>
-    <p><%= simple_format(current_user.profile) %></p>
+    <span class="card-title grey-text text-darken-4"><%= user.name %><i class="material-icons right">expand_more</i></span>
+    <p><%= simple_format(user.profile) %></p>
   </div>
 </div>
