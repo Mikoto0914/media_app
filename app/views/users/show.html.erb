@@ -2,7 +2,7 @@
   <div class="col s3">
     <div class="card">
       <div class="card-image waves-effect waves-block waves-light">
-        <%= image_tag "/default.png" ,class: "activator responsive-img" %>
+        <%= image_tag "#{@user.image}" %>
       </div>
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4"><%= @user.name %><i class="material-icons right">expand_less</i></span>
@@ -29,10 +29,10 @@
       
       <% @user.posts.each do |post| %>
         <li class="collection-item avatar">
-          <%= link_to image_tag("/default.png", class: "circle responsive-img"), "/users/#{post.id}" %>
+          <%= link_to image_tag("#{post.user.image}", class: "circle responsive-img"), "/users/#{post.user.id}" %>
           <span class="title"><%= link_to(post.title, "/posts/#{post.id}", class: "black-text") %></span>
           <p>
-            <%= link_to post.user.name, "/users/#{post.id}" %>
+            <%= link_to post.user.name, "/users/#{post.user.id}" %>
             <%= post.updated_at.strftime("%Y/%m/%d") %>
           </p>
           <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
