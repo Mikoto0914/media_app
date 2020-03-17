@@ -44,6 +44,8 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'redcarpet', '~> 2.3.0'
 gem 'coderay'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

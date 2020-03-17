@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   get  'users/profile_edit'=>  'users/profile_edit'
   get  'users/:id'         => 'users#show'
   
+  
+  
 end
