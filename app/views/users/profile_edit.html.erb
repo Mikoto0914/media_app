@@ -12,21 +12,21 @@
       <%= form_for(current_user, url: user_registration_path, html: { method: :put }) do |f| %>
         <div class="form-group">
           <%= f.label "ユーザー名" %>
-          <%= f.text_field :name, autofocus: true, class: 'form-control validate' %>
+          <%= f.text_field :name, autofocus: true, class: "form-control validate" %>
         </div><br>
         
         <h5 class="blue-text text-darken-2">アイコン変更</h5>
         
         <div class="form-group">
           <%= f.label :image %>
-          <%= f.file_field :image, class: 'form-control validate btn' %>
+          <%= f.file_field :image, class: "form-control validate btn" %>
         </div><br>
         
         <h5 class="blue-text text-darken-2">自己紹介</h5>
         
         <div class="form-group">
           <%= f.label :profile, "(255文字未満)" %>
-          <%= f.text_area :profile, :maxlength => "255", size: "100x100", class: 'form-control validate profile_textbox'  %>
+          <%= f.text_area :profile, :maxlength => "255", size: "100x100", class: "form-control validate profile_textbox"  %>
         </div><hr>
         
         <div class="actions">

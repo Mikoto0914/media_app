@@ -1,0 +1,22 @@
+<div class="row">
+  <%= form_for post do |f| %>
+  
+  <div class="col s12">
+    <div class="form-group">
+      <%= f.label :title, '投稿タイトル' %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+  </div>
+  
+  <div class="col s6">
+    <div class="form-group">
+      <%= f.label :content, '投稿内容' %>
+      <%= f.text_area :content, class: 'form-control textlines' %>
+    </div>
+    <%= f.submit '投稿', class: 'btn btn-info btn-block' %>
+  </div>
+  
+  <% end %>
+  
+  <div class="col s6">6-columns (one-half)</div>
+</div>

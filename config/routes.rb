@@ -1,22 +1,23 @@
 Rails.application.routes.draw do
   
+  resources :posts, only: [:index, :new, :create, :show]
+  
+  
   devise_for :users, controllers: {
     registrations: 'users/registrations',
-    sessions: 'users/sessions'
+    sessions:      'users/sessions'
   }
 
   get  'users/profile_edit' => 'users/profile_edit'
   get  'users/:id'          => 'users#show'
   
-  get  '/'                  => 'posts#index'
-  get  'posts/new'          => 'posts#new'
-  get  'posts/:id'          => 'posts#show'
-  post 'posts/create'       => 'posts#create'
-  get  'posts/:id/edit'     => 'posts#edit'
-  post 'posts/:id/update'   => 'posts#update'
-  post 'posts/:id/destroy'  => 'posts#destroy'
+  Rails.application.routes.draw do
+    resources :posts
+  end
   
-  
+  devise_scope :posts do
+    get '/', to: 'posts#index'
+  end
   
   
 end

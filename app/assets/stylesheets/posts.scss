@@ -6,9 +6,23 @@ ul.center li {
   width: 95%;
   font-weight:bold;
 }
+
 a {
   text-decoration:none;
 }
+
 a:hover {
   text-decoration:underline;
+}
+
+.article_frame {
+  margin: 0 auto;
+  max-width: 800px;
+  width: 800px;
+  word-break: break-all;
+}
+
+.textlines {
+  resize: vertical;
+  border: none; 
 }
