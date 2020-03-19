@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :set_target_post, only: %i[show edit update destroy]
   
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.where(publish_flg: true)
   end
   
   def new
@@ -12,29 +12,17 @@ class PostsController < ApplicationController
       user_id: current_user.id,
       title: "無題の記事",
       content: "ここに本文を入力してください",
+      publish_flg: false
     )
     unless @post.save
       flash[:alert] = "記事の作成に失敗しました"
       redirect_to articles_path and return
     end
+    redirect_to edit_post_path @post
   end
   
   def show
     @user = @post.user
-  end
-  
-  def create
-    @post=Post.new(
-      user_id: current_user.id,
-      title:params[:title],
-      content:params[:content]
-    )
-    if @post.save
-      flash[:notice] = "投稿を作成しました"
-      redirect_to("/")
-    else
-      render("posts/new")
-    end
   end
   
   def edit
@@ -52,7 +40,7 @@ class PostsController < ApplicationController
   end
   
   def post_params
-    params.require(:post).permit(:user_id,:title, :content)
+    params.require(:post).permit(:user_id, :title, :content, :publish_flg)
   end
   
   def set_target_post
