@@ -7,7 +7,8 @@ Rails.application.routes.draw do
     sessions:      'users/sessions'
   }
 
-  get  'users/profile_edit' => 'users/profile_edit'
+  get  'users/profile_edit' => 'users#profile_edit'
+  get  'users/drafts'       => 'users#drafts'
   get  'users/:id'          => 'users#show'
   
   Rails.application.routes.draw do

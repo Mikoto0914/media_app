@@ -5,17 +5,7 @@
     <label for="autocomplete-input">キーワードを入力</label>
   </div>
       
-<ul class="collection">
-  <% @posts.each do |post| %>
-    <li class="collection-item avatar">
-      <%= link_to image_tag("#{post.user.image}", class: "circle responsive-img"), "/users/#{post.user.id}" %>
-      <span class="title truncate"><%= link_to(post.title, "/posts/#{post.id}") %></span>
-      <%= link_to post.user.name, "/users/#{post.user.id}" %>
-      <%= post.updated_at.strftime("%Y/%m/%d") %>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-  <% end %>
-</ul>
+<%= render partial: "commons/articles_list", locals: { posts: @posts } %>
 </div>
 
 
