@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   
   resources :posts, only: [:index, :new, :create, :show]
   
-  
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions:      'users/sessions'
@@ -18,6 +17,5 @@ Rails.application.routes.draw do
   devise_scope :posts do
     get '/', to: 'posts#index'
   end
-  
   
 end
