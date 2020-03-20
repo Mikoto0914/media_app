@@ -1,37 +1,33 @@
 <div class="row">
   <%= form_for post do |f| %>
   
-  <div class="col s11">
-    <div class="form-group">
-      <%= f.label :title, "投稿タイトル" %>
-      <%= f.text_field :title, autofocus: true, class: "form-control" %>
+    <div class="col s11">
+      <div class="form-group">
+        <%= f.label :title, "投稿タイトル" %>
+        <%= f.text_field :title, autofocus: true, class: "form-control" %>
+      </div>
     </div>
-  </div>
-  
-  <div class="col s1">
-    <div class="form-group"><br>
-      <label>
-        <%= f.radio_button :publish_flg, true %>
-        <span>公開</span>
-      </label>
-      <label>
-        <%= f.radio_button :publish_flg, false %>
-        <span>非公開</span>
-      </label>
+    
+    <div class="col s1">
+      <div class="form-group"><br>
+        <label>
+          <%= f.radio_button :publish_flg, true %>
+          <span>公開</span>
+        </label>
+        <label>
+          <%= f.radio_button :publish_flg, false %>
+          <span>非公開</span>
+        </label>
+      </div>
     </div>
-  </div>
-  
-  <div class="col s6">
+    
     <div class="form-group">
       <%= f.label :content, "投稿内容" %>
       <%= f.text_area :content, class: "form-control textlines" %>
     </div>
     <%= f.submit "投稿", class: "btn" %>
-  </div>
-  
+    <%= link_to "プレビュー", "/posts/#{post.id}/preview", class: "btn" %>
+   
   <% end %>
-  
-  <div class="col s6">6-columns (one-half)</div>
-  
 </div>
 

@@ -11,12 +11,14 @@ Rails.application.routes.draw do
   get  'users/drafts'       => 'users#drafts'
   get  'users/:id'          => 'users#show'
   
+  
   Rails.application.routes.draw do
     resources :posts
   end
   
   devise_scope :posts do
     get '/', to: 'posts#index'
+    get 'posts/:id/preview', to: 'posts#preview'
   end
   
 end
