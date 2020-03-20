@@ -3,8 +3,8 @@
   
   <div class="col s11">
     <div class="form-group">
-      <%= f.label :title, '投稿タイトル' %>
-      <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+      <%= f.label :title, "投稿タイトル" %>
+      <%= f.text_field :title, autofocus: true, class: "form-control" %>
     </div>
   </div>
   
@@ -23,11 +23,12 @@
   
   <div class="col s6">
     <div class="form-group">
-      <%= f.label :content, '投稿内容' %>
-      <%= f.text_area :content, class: 'form-control textlines' %>
+      <%= f.label :content, "投稿内容" %>
+      <%= f.text_area :content, class: "form-control textlines" %>
     </div>
+    <%= f.submit "投稿", class: "btn" %>
   </div>
-  <%= f.submit '投稿', class: 'btn' %>
+  
   <% end %>
   
   <div class="col s6">6-columns (one-half)</div>

@@ -4,7 +4,7 @@
     <li class="divider"></li>
     <li><%= link_to "アカウント設定", edit_user_registration_path %></li>
     <li class="divider"></li>
-    <li><%= link_to "投稿する", "/posts/new" %></li>
+    <li><%= link_to "下書き一覧", "/users/drafts" %></li>
     <li class="divider"></li>
     <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
   </ul>
@@ -17,6 +17,7 @@
         
       <% if user_signed_in? %>
         <div class="user_nav grid-6">
+          <li><%= link_to "新規投稿", "/posts/new" %></li>
           <li>
             <a class="dropdown-trigger" href="#!" data-target="dropdown1">
               <div class="chip">
