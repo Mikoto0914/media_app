@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   
   before_action :authenticate_user!, only: [:edit, :new, :create, :update, :destroy]
-  before_action :set_target_post, only: %i[show edit update destroy preview]
+  before_action :set_target_post, only: %i[show edit update destroy preview post_up]
   
   def index
     @posts = Post.where(publish_flg: true)
@@ -26,6 +26,8 @@ class PostsController < ApplicationController
   end
   
   def edit
+    @post.publish_flg=false
+    @post.save
   end
   
   def preview
@@ -34,8 +36,13 @@ class PostsController < ApplicationController
   
   def update
     @post.update(post_params)
-    flash[:alert] = "記事を作成しました。"
-    redirect_to "/"
+    
+  end
+  
+  def post_up
+    @post.publish_flg = true
+    @post.update(post_params)
+    redirect_to edit_post_path @post
   end
   
   def destroy

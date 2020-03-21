@@ -1,5 +1,5 @@
 <div class="row">
-  <%= form_for post do |f| %>
+  <%= form_for post, html: { id: "ajax-form" } do |f| %>
   
     <div class="col s11">
       <div class="form-group">
@@ -23,11 +23,10 @@
     
     <div class="form-group">
       <%= f.label :content, "投稿内容" %>
-      <%= f.text_area :content, class: "form-control textlines" %>
+      <%= f.text_area :content, id: "ajax-form-tmp", class: "form-control textlines" %>
     </div>
     <%= f.submit "投稿", class: "btn" %>
     <%= link_to "プレビュー", "/posts/#{post.id}/preview", class: "btn" %>
    
   <% end %>
 </div>
-
