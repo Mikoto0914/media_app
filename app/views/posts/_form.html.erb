@@ -1,32 +1,20 @@
-<div class="row">
+<div class="row article_frame">
   <%= form_for post, html: { id: "ajax-form" } do |f| %>
-  
-    <div class="col s11">
-      <div class="form-group">
-        <%= f.label :title, "投稿タイトル" %>
-        <%= f.text_field :title, autofocus: true, class: "form-control" %>
-      </div>
+
+    <div class="form-group">
+      <%= f.label :title, "投稿タイトル" %>
+      <%= f.text_field :title, autofocus: true, class: "form-control" %>
     </div>
     
-    <div class="col s1">
-      <div class="form-group"><br>
-        <label>
-          <%= f.radio_button :publish_flg, true %>
-          <span>公開</span>
-        </label>
-        <label>
-          <%= f.radio_button :publish_flg, false %>
-          <span>非公開</span>
-        </label>
-      </div>
-    </div>
     
     <div class="form-group">
       <%= f.label :content, "投稿内容" %>
       <%= f.text_area :content, id: "ajax-form-tmp", class: "form-control textlines" %>
     </div>
-    <%= f.submit "投稿", class: "btn" %>
-    <%= link_to "プレビュー", "/posts/#{post.id}/preview", class: "btn" %>
-   
+    
+    <a class="waves-effect waves-light btn", id="save">保存する</a>
+    <%= link_to "投稿する", "/posts/#{post.id}/post_up", class: "btn", method: :post %>
+    <%= link_to "プレビュー", "/posts/#{post.id}", class: "btn" %>
+    
   <% end %>
 </div>

@@ -11,6 +11,7 @@
     <li class="divider"></li>
     <%= markdown(@post.content).html_safe %>
   </div>
+  
   <% if user_signed_in? && @user.id==current_user.id %>
     <%= link_to "編集", edit_post_path, class: "btn" %>
     <%= link_to "削除" , @post, class: "btn red lighten-2", 
