@@ -1,4 +1,15 @@
 <div class="row">
+  <div class="col s2 center-align">
+    <h5 class="blue-text lighten-2"><%= @post.likes.count %></h5>
+
+      <% if user_signed_in? && current_user.already_liked?(@post) %>
+        <%= button_to 'done', post_like_path(@post), class: "btn-floating btn-large material-icons", method: :delete %>
+      <% else %>
+        <%= button_to 'thumb_up', post_likes_path(@post), class: "btn-floating btn-large material-icons" %>
+      <% end %>
+  
+  </div>
+  
   <div class="col s8">
     <div class="card-panel white article_frame">
       <div class="chip">
