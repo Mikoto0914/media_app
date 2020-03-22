@@ -12,6 +12,7 @@ class User < ApplicationRecord
                 message: 'は小文字英数字で入力してください'
             }   
       
+  #いいねをしているのか判定
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
   end
@@ -19,7 +20,9 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   
   has_many :posts
+  has_many :stocks
   has_many :likes
   has_many :liked_posts, through: :likes, source: :post
+  
 
 end
