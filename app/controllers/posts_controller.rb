@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.where(publish_flg: true)
+    @post = Post.new
   end
   
   def new
@@ -23,6 +24,7 @@ class PostsController < ApplicationController
   
   def show
     @user = @post.user
+    @like = Like.new
   end
   
   def edit
