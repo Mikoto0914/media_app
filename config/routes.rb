@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
-  resources :posts, only: [:index, :new, :create, :show]
+  resources :posts, only: [:index, :new, :create, :show] do
+    resources :likes, only: [:create, :destroy]
+  end
   
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
   end
   
   devise_scope :posts do
-    get '/', to: 'posts#index'
+    root to: 'posts#index'
     post 'posts/:id/post_up', to: 'posts#post_up'
   end
   
