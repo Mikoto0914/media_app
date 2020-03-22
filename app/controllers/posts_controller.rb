@@ -36,13 +36,13 @@ class PostsController < ApplicationController
   
   def update
     @post.update(post_params)
-    
   end
   
   def post_up
     @post.publish_flg = true
-    @post.update(post_params)
-    redirect_to edit_post_path @post
+    @post.save
+    flash[:notice] = "投稿しました"
+    redirect_to "/"
   end
   
   def destroy

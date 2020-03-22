@@ -18,8 +18,6 @@ Rails.application.routes.draw do
   
   devise_scope :posts do
     get '/', to: 'posts#index'
-    
-    get 'posts/:id/preview', to: 'posts#preview'
     post 'posts/:id/post_up', to: 'posts#post_up'
   end
   
