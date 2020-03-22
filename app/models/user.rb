@@ -4,8 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-  
-         
   validates :name,
             presence: true,
             length: { maximum: 16 },
@@ -14,11 +12,10 @@ class User < ApplicationRecord
                 message: 'は小文字英数字で入力してください'
             }       
   
-  def posts
-    return Post.where(user_id: self.id)
-  end
-  
   mount_uploader :image, ImageUploader
+  
   has_many :posts
+  has_many :likes
+  has_many :liked_posts, through: :likes, source: :post
 
 end
