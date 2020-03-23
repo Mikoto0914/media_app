@@ -7,15 +7,7 @@
   <div class="col s9"><br>
     <div class="row">
       
-      <div class="col s12">
-        <ul class="tabs">
-          <li class="tab col s3"><%= link_to "下書き一覧(#{@posts_drafts.count})", "#drafts" %></li>
-          <li class="tab col s3"><%= link_to "投稿記事一覧(#{@posts_releas.count})", "#release" %></li>
-        </ul>
-      </div>
-      
-      <div id="drafts" class="col s12"><%= render partial: "commons/articles_list", locals: { posts: @posts_drafts } %></div>
-      <div id="release" class="col s12"><%= render partial: "commons/articles_list", locals: { posts: @posts_releas } %></div>
+      <div id="drafts" class="col s12"><%= render partial: "commons/articles_list", locals: { posts: @posts_favorite } %></div>
       
     </div>
   </div>
