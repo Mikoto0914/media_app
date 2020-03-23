@@ -1,6 +1,7 @@
 <div class="collection">
   <%= link_to "マイページ", "/users/#{current_user.id}", class: "collection-item center-align" %>
   <%= link_to "下書き一覧", "/users/drafts", class: "collection-item center-align" %>
+  <%= link_to "お気に入り一覧", "/users/favorite", class: "collection-item center-align" %>
   <%= link_to "プロフィール編集", "/users/profile_edit", class: "collection-item center-align" %>
   <%= link_to "アカウント設定", edit_user_registration_path, class: "collection-item center-align" %>
 </div>
