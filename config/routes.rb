@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   resources :posts, only: [:index, :new, :create, :show] do
     resources :likes, only: [:create, :destroy]
+    resources :stocks, only: [:create, :destroy]
   end
   
   devise_for :users, controllers: {
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
 
   get  'users/profile_edit' => 'users#profile_edit'
   get  'users/drafts'       => 'users#drafts'
+  get  'users/favorite'     => 'users#favorite'
   get  'users/:id'          => 'users#show'
   
   
