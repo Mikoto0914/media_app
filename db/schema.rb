@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_22_141019) do
+ActiveRecord::Schema.define(version: 2020_03_22_195544) do
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "post_id"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 2020_03_22_141019) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "stocks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_stocks_on_post_id"
+    t.index ["user_id", "post_id"], name: "index_stocks_on_user_id_and_post_id", unique: true
+    t.index ["user_id"], name: "index_stocks_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -49,4 +59,6 @@ ActiveRecord::Schema.define(version: 2020_03_22_141019) do
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "stocks", "posts"
+  add_foreign_key "stocks", "users"
 end

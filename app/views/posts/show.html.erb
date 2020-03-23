@@ -3,9 +3,23 @@
     <h5 class="blue-text lighten-2"><%= @post.likes.count %></h5>
 
       <% if user_signed_in? && current_user.already_liked?(@post) %>
-        <%= button_to 'done', post_like_path(@post), class: "btn-floating btn-large material-icons", method: :delete %>
+        <%= button_to "done", post_like_path(@post), class: "btn-floating btn-large material-icons", method: :delete %>
       <% else %>
-        <%= button_to 'thumb_up', post_likes_path(@post), class: "btn-floating btn-large material-icons" %>
+        <%= button_to "thumb_up", post_likes_path(@post), class: "btn-floating btn-large material-icons" %>
+      <% end %>
+      
+      <% if user_signed_in? && current_user.already_stocked?(@post) %>
+        <div class="tooltipped" data-position="top" data-tooltip="お気に入り登録済み">
+          <%= button_to "favorite", post_stock_path(@post), class: "btn-floating btn-large material-icons red-text text-lighten-3", method: :delete %>
+        </div>
+      <% else %>
+        <div class="tooltipped" data-position="top" data-tooltip="お気に入り登録済み">
+          <%= button_to "favorite_border", post_stocks_path(@post), class: "btn-floating btn-large material-icons" %>
+        </div>
+      <% end %>
+      
+      <% @post.stocked_users.each do |user| %>
+        <li><%= user.id %></li>
       <% end %>
   
   </div>
