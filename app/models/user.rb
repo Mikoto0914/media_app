@@ -17,6 +17,7 @@ class User < ApplicationRecord
     self.likes.exists?(post_id: post.id)
   end
   
+  #ストックしているのか判定
   def already_stocked?(post)
     self.stocks.exists?(post_id: post.id)
   end
