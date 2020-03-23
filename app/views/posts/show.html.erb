@@ -1,50 +1,58 @@
 <div class="row">
   <div class="col s2 center-align">
     <h5 class="blue-text lighten-2"><%= @post.likes.count %></h5>
-    <% if user_signed_in? %>
     
-      <% if current_user.already_liked?(@post) %>
-        <%= button_to "done", post_like_path(@post), class: "btn-floating btn-large material-icons", method: :delete %>
-      <% else %>
-        <div class="tooltipped" data-position="top" data-tooltip="Good">
-          <%= button_to "thumb_up", post_likes_path(@post), class: "btn-floating btn-large material-icons" %>
+    <% if user_signed_in? && current_user.already_liked?(@post) %>
+      <%= button_to "done", post_like_path(@post), class: "btn-floating btn-large material-icons", method: :delete %>
+    <% else %>
+      <div class="tooltipped" data-position="top" data-tooltip="Good">
+        <%= button_to "thumb_up", post_likes_path(@post), class: "btn-floating btn-large material-icons" %>
+      </div>
+    <% end %><br>
+      
+    <% if user_signed_in? && @post.user.id != current_user.id %>
+      <% if current_user.already_stocked?(@post) %>
+        <div class="tooltipped" data-position="top" data-tooltip="お気に入り登録済み">
+          <%= button_to "favorite", post_stock_path(@post), class: "btn-floating btn-large material-icons red-text text-lighten-3", method: :delete %>
         </div>
-      <% end %><br>
-      
-      <% @post.id != current_user.id %>
-        <% if current_user.already_stocked?(@post) %>
-          <div class="tooltipped" data-position="top" data-tooltip="お気に入り登録済み">
-            <%= button_to "favorite", post_stock_path(@post), class: "btn-floating btn-large material-icons red-text text-lighten-3", method: :delete %>
-          </div>
-        <% else %>
-          <div class="tooltipped" data-position="top" data-tooltip="お気に入り登録">
-            <%= button_to "favorite_border", post_stocks_path(@post), class: "btn-floating btn-large material-icons" %>
-          </div>
-        <% end %>
+      <% else %>
+        <div class="tooltipped" data-position="top" data-tooltip="お気に入り登録">
+          <%= button_to "favorite_border", post_stocks_path(@post), class: "btn-floating btn-large material-icons" %>
+        </div>
       <% end %>
-      
     <% end %>
+    
   </div>
   
   <div class="col s8">
     <div class="card-panel white article_frame">
-      
       <div class="chip">
         <%= image_tag "#{@post.user.image}" %>
         <%= link_to @post.user.name, "/users/#{@post.user.id}" %>
       </div>
-      <%= @post.updated_at.strftime("%Y年%m月%d日") %><br>
       
+      <%= @post.updated_at.strftime("%Y年%m月%d日") %><br>
       <h3><%= @post.title %></h3>
       <li class="divider"></li>
+      
       <%= markdown(@post.content).html_safe %>
     </div>
     
     <% if user_signed_in? && @user.id==current_user.id %>
       <%= link_to "編集", edit_post_path, class: "btn" %>
-      <%= link_to "削除" , @post, class: "btn red lighten-2", 
-        data: { confirm: "本当に削除しますか？" }, method: :delete %>
+      <button data-target="modal1" class="btn modal-trigger red lighten-2">削除</button>
     <% end %>
+    
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4><span class="red-text text-darken-2">本当に削除しますか？</span></h4>
+        <p>削除すると記事内容、いいね数などが全て削除されます。この処理は取り消しできません。</p>
+      </div>
+      <div class="modal-footer">
+        <%= button_to "はい", @post, class:"waves-light btn red lighten-2", method: :delete  %>
+      </div>
+    </div>
+      
   </div>
 </div>
 
