@@ -3,7 +3,7 @@
     <p class="btn white blue-text"><i class="material-icons left">thumb_up</i><%= @post.likes.count %></p><br>
     
     <!--未登録者と投稿者本人には表示しない-->
-    <% if user_signed_in? && @post.user.id != current_user.id %>
+    <% if user_signed_in?  %>
     
       <!--いいねボタン-->
       <% if current_user.already_liked?(@post) %>

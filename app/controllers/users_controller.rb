@@ -4,21 +4,26 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find_by(id: params[:id])
-    @posts_latest = Post.where(user: params[:id]).where(publish_flg: true).order(id: "DESC")
-    @posts_my_ranks = Post.create_all_ranks.select{ |post| post.user_id == @user.id && post.publish_flg==true }
-    @posts_likes = @user.liked_posts
+    @posts_latest = article_extraction(params[:id], true)
+    @my_ranks = Post.create_all_ranks.select{ |post| post.user_id == @user.id && post.publish_flg==true }
+    @posts_my_ranks = Kaminari.paginate_array(@my_ranks).page(params[:page]).per(20)
+    @posts_likes = @user.liked_posts.page(params[:page]).per(20)
   end
   
-  def drafts
-    @posts_drafts = Post.where(user: current_user.id).where(publish_flg: false).order(id: "DESC")
-    @posts_releas = Post.where(user: current_user.id).where(publish_flg: true).order(id: "DESC")
+  def draft
+    @posts_draft = article_extraction(current_user.id, false)
+    @posts_release = article_extraction(current_user.id, true)
   end
 
   def favorite
-    @posts_favorite = current_user.stocked_posts
+    @posts_favorite = current_user.stocked_posts.page(params[:page]).per(20)
   end
   
   def profile_edit
+  end
+  
+  def article_extraction(user_id, flg)
+    return Post.where(user: user_id).where(publish_flg: flg).order(updated_at: "DESC").page(params[:page]).per(20)
   end
   
 end

@@ -7,14 +7,14 @@
   </div>
   
   <div class="col s9"><br>
-    <ul class="tabs">
-      <li class="tab col s3"><%= link_to "最近の記事(#{@posts_latest.count})", "#latest" %></li>
-      <li class="tab col s3"><%= link_to "人気の記事(#{@posts_my_ranks.count})", "#popular" %></li>
-      <li class="tab col s3"><%= link_to "いいねした記事(#{@posts_likes.count})", "#likes" %></li>
-    </ul>
-    <div id="latest"><%= render partial: "commons/articles_list", locals: { posts: @posts_latest } %></div>
-    <div id="popular"><%= render partial: "commons/articles_list", locals: { posts: @posts_my_ranks } %></div>
-    <div id="likes"><%= render partial: "commons/articles_list", locals: { posts: @posts_likes } %></div>
+  <ul class="tabs">
+    <li class="tab col s3"><%= link_to "最近の記事(#{@posts_latest.count})", "#latest" %></li>
+    <li class="tab col s3"><%= link_to "人気の記事(#{@posts_my_ranks.count})", "#popular" %></li>
+    <li class="tab col s3"><%= link_to "いいねした記事(#{@posts_likes.count})", "#likes" %></li>
+  </ul>
+  <div id="latest"><%= render partial: "commons/articles_list", locals: { posts: @posts_latest } %></div>
+  <div id="popular"><%= render partial: "commons/articles_list", locals: { posts: @posts_my_ranks } %></div>
+  <div id="likes"><%= render partial: "commons/articles_list", locals: { posts: @posts_likes } %></div>
   </div>
 </div>
 
