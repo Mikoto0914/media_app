@@ -54,6 +54,11 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
   
+  def search
+    #Viewのformで取得したパラメータをモデルに渡す
+    @posts = Post.search(params[:search]).page(params[:page]).per(20)
+  end
+  
   def post_params
     params.require(:post).permit(:user_id, :title, :content, :publish_flg)
   end

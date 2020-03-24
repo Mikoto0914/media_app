@@ -12,4 +12,10 @@ class Post < ApplicationRecord
     Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
   end
   
+  #入力された値をタイトル、記事内容から探す
+  def self.search(search)
+    return Post.all unless search
+    Post.where(['title LIKE ? or content LIKE ?', "%#{search}%", "%#{search}%"])
+  end
+  
 end

@@ -23,7 +23,8 @@ Rails.application.routes.draw do
   
   devise_scope :posts do
     root to: 'posts#index'
-    post 'posts/:id/post_up', to: 'posts#post_up'
+    get  '/search'          => 'posts#search'
+    post 'posts/:id/post_up'  => 'posts#post_up'
   end
   
 end
