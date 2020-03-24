@@ -22,12 +22,12 @@ a:hover {
   word-break: break-all;
 }
 
-.edit_frame {
-  display:inline-block;
-}
-
 .textlines {
   height: 700px;
   resize: vertical;
 }
 
+.input-field{
+  width: 90%;
+  display:inline-block;
+}
