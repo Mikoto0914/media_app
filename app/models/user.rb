@@ -29,6 +29,5 @@ class User < ApplicationRecord
   has_many :stocked_posts, through: :stocks, source: :post
   has_many :likes
   has_many :liked_posts, through: :likes, source: :post
-  
 
 end
