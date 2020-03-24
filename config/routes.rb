@@ -11,9 +11,10 @@ Rails.application.routes.draw do
   }
 
   get  'users/profile_edit' => 'users#profile_edit'
-  get  'users/drafts'       => 'users#drafts'
+  get  'users/draft'      => 'users#draft'
   get  'users/favorite'     => 'users#favorite'
   get  'users/:id'          => 'users#show'
+  
   
   
   Rails.application.routes.draw do
