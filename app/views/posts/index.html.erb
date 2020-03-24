@@ -4,8 +4,13 @@
     <input type="text" id="autocomplete-input" class="autocomplete">
     <label for="autocomplete-input">キーワードを入力</label>
   </div>
+  <ul class="tabs">
+      <li class="tab col s3"><%= link_to "最新", "#latest" %></li>
+      <li class="tab col s3"><%= link_to "人気", "#popular" %></li>
+    </ul>
+    <div id="latest"><%= render partial: "commons/articles_list", locals: { posts: @posts_latest } %></div>
+    <div id="popular"><%= render partial: "commons/articles_list", locals: { posts: @posts_all_ranks } %></div>
   
-  <%= render partial: "commons/articles_list", locals: { posts: @posts } %>
 </div>
 
 

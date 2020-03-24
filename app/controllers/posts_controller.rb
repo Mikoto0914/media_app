@@ -4,7 +4,8 @@ class PostsController < ApplicationController
   before_action :set_target_post, only: [:show, :edit, :update, :destroy, :post_up]
   
   def index
-    @posts = Post.where(publish_flg: true)
+    @posts_latest = Post.where(publish_flg: true)
+    @posts_all_ranks = Post.create_all_ranks.select{ |post| post.publish_flg==true }
   end
   
   def new
