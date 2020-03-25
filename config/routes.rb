@@ -11,11 +11,9 @@ Rails.application.routes.draw do
   }
 
   get  'users/profile_edit' => 'users#profile_edit'
-  get  'users/draft'      => 'users#draft'
+  get  'users/draft'        => 'users#draft'
   get  'users/favorite'     => 'users#favorite'
   get  'users/:id'          => 'users#show'
-  
-  
   
   Rails.application.routes.draw do
     resources :posts
@@ -23,8 +21,8 @@ Rails.application.routes.draw do
   
   devise_scope :posts do
     root to: 'posts#index'
-    get  '/search'          => 'posts#search'
-    post 'posts/:id/post_up'  => 'posts#post_up'
+    get      '/search'            => 'posts#search'
+    post     'posts/:id/post_up'  => 'posts#post_up'
   end
   
 end

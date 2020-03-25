@@ -12,6 +12,10 @@ class PostsController < ApplicationController
     @posts_latest = @latest.page(params[:page]).per(20)
   end
   
+  def search
+    @posts = Post.search(params[:search]).page(params[:page]).per(20)
+  end
+  
   def new
     @post=Post.new(
       user_id: current_user.id,
@@ -52,11 +56,6 @@ class PostsController < ApplicationController
     @post.delete
     flash[:notice] = "投稿を削除しました"
     redirect_to posts_path
-  end
-  
-  def search
-    #Viewのformで取得したパラメータをモデルに渡す
-    @posts = Post.search(params[:search]).page(params[:page]).per(20)
   end
   
   def post_params
