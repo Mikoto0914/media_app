@@ -1,5 +1,8 @@
-<div class="container">
-  <%= form_tag(search_path,:method => 'get') do %>
+<div class="row">
+  <div class="col s12 m4 l2"><p>s12 m4</p></div>
+  
+  <div class="col s12 m4 l8">
+    <%= form_tag(search_path,:method => 'get') do %>
 
     <div class="input-field center">
       <i class="material-icons prefix">search</i>
@@ -7,16 +10,17 @@
       <%= text_field_tag :search, "", class: "autocomplete", id: "autocomplete-input" %>
     </div>
   
-    <%= submit_tag '検索', :name => nil , class: "btn"%>
-  <% end %>
-  <ul class="tabs">
+      <%= submit_tag '検索', :name => nil , class: "btn"%>
+    <% end %>
+    <ul class="tabs">
       <li class="tab col s3"><%= link_to "最新", "#latest" %></li>
       <li class="tab col s3"><%= link_to "人気", "#popular" %></li>
     </ul>
     <div id="latest"><%= render partial: "commons/articles_list", locals: { posts: @posts_latest } %></div>
     <div id="popular"><%= render partial: "commons/articles_list", locals: { posts: @posts_all_ranks } %></div>
+  </div>
   
+  <div class="col s12 m4 l2">
+    
+  </div>
 </div>
-
-  
-
