@@ -2,7 +2,7 @@
   <ul id="dropdown1" class="dropdown-content">
     <li><%= link_to "マイページ", "/users/#{current_user.id}" %></li>
     <li class="divider"></li>
-    <li><%= link_to "下書き一覧", "/users/drafts" %></li>
+    <li><%= link_to "下書き一覧", users_draft_path %></li>
     <li class="divider"></li>
     <li><%= link_to "アカウント設定", edit_user_registration_path %></li>
     <li class="divider"></li>
@@ -37,7 +37,6 @@
         </div>
         
       <% end %>
-      
     </ul>
   </div>
 </nav>

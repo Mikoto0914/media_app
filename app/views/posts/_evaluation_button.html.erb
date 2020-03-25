@@ -1,0 +1,24 @@
+<!--未登録者と投稿者本人には表示しない-->
+<% if user_signed_in? && posts.id == current_user.id %>
+
+  <!--いいねボタン-->
+  <% if current_user.already_liked?(posts) %>
+    <%= button_to "done", post_like_path(posts), class: "btn-floating btn-large material-icons", method: :delete %>
+  <% else %>
+    <div class="tooltipped" data-position="top" data-tooltip="Good">
+      <%= button_to "thumb_up", post_likes_path(posts), class: "btn-floating btn-large material-icons" %>
+    </div>
+  <% end %><br>
+    
+  <!--お気に入り登録ボタン-->
+  <% if current_user.already_stocked?(posts) %>
+    <div class="tooltipped" data-position="top" data-tooltip="お気に入り登録済み">
+      <%= button_to "favorite", post_stock_path(posts), class: "btn-floating btn-large material-icons red-text text-lighten-3", method: :delete %>
+    </div>
+  <% else %>
+    <div class="tooltipped" data-position="top" data-tooltip="お気に入り登録">
+      <%= button_to "favorite_border", post_stocks_path(posts), class: "btn-floating btn-large material-icons" %>
+    </div>
+  <% end %>
+  
+<% end %>
