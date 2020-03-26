@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get  'users/:id'          => 'users#show'
   
   Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
     resources :posts
   end
   

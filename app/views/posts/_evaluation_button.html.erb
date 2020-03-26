@@ -1,5 +1,5 @@
 <!--未登録者と投稿者本人には表示しない-->
-<% if user_signed_in? && posts.id == current_user.id %>
+<% if user_signed_in? && posts.id != current_user.id %>
 
   <!--いいねボタン-->
   <% if current_user.already_liked?(posts) %>
