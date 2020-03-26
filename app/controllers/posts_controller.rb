@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     )
     unless @post.save
       flash[:alert] = "記事の作成に失敗しました"
-      redirect_to articles_path and return
+      redirect_to root_path and return
     end
     redirect_to edit_post_path @post
   end
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
   
   def edit
     @post.publish_flg=false
-    @post.save
+    @post.save!
   end
   
   def update

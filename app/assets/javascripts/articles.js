@@ -10,7 +10,7 @@ $(window).on('load', function() {
     clearTimeout(timer_id);
     
     //保存ボタン押下時保存
-    $('#save').click(function(){
+    $('#article_save').click(function(){
       ajaxAutoSave();
     })
 
