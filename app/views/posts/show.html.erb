@@ -21,7 +21,7 @@
     <% if user_signed_in? && @user.id==current_user.id %>
       <%= link_to "編集", edit_post_path, class: "btn" %>
       <button data-target="modal1" class="btn modal-trigger red lighten-2">削除</button>
-      <%= link_to "投稿", "/posts/#{post.id}/post_up", class: "btn right", method: :post %>
+      <%= link_to "投稿", "/posts/#{@post.id}/post_up", class: "btn right", method: :post %>
     <% end %>
     
     <div id="modal1" class="modal">
