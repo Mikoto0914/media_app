@@ -1,3 +1,33 @@
 ul.center li {
   _display: inline;
 }
+
+.title{
+  width: 95%;
+  font-weight:bold;
+}
+
+a {
+  text-decoration:none;
+}
+
+a:hover {
+  text-decoration:underline;
+}
+
+.article_frame {
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+  word-break: break-all;
+}
+
+.textlines {
+  height: 700px;
+  resize: vertical;
+}
+
+.input-field{
+  width: 90%;
+  display:inline-block;
+}

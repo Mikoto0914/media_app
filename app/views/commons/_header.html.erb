@@ -1,29 +1,29 @@
-<ul id="dropdown1" class="dropdown-content">
-  <li><%= link_to "マイページ", "/user" %></li>
-  <li class="divider"></li>
-  <li><%= link_to "投稿する", "/posts/new", class: 'post' %></li>
-  <li class="divider"></li>
-  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-</ul>
+<% if user_signed_in? %>
+  <ul id="dropdown1" class="dropdown-content">
+    <li><%= link_to "マイページ", "/users/#{current_user.id}" %></li>
+    <li class="divider"></li>
+    <li><%= link_to "下書き一覧", users_draft_path %></li>
+    <li class="divider"></li>
+    <li><%= link_to "アカウント設定", edit_user_registration_path %></li>
+    <li class="divider"></li>
+    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+  </ul>
+<% end %>
 
 <nav>
   <div class="nav-wrapper">
     <a href="/" class="brand-logo"><i class="material-icons">home</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         
-      
-      
       <% if user_signed_in? %>
         <div class="user_nav grid-6">
+          <li><%= link_to "お気に入り一覧", "/users/favorite" %></li>
+          <li><%= link_to "新規投稿", "/posts/new" %></li>
           <li>
             <a class="dropdown-trigger" href="#!" data-target="dropdown1">
               <div class="chip">
-                <img src="sample.png">
-                <% if current_user.name==nil %>
-                  <%= current_user.email %>
-                <% else %>
-                  <%= current_user.name %>
-                <% end %>
+                <%= image_tag "#{current_user.image}" %>
+                <%= current_user.name %>
               </div>
               <i class="material-icons right">arrow_drop_down</i>
             </a>
@@ -32,12 +32,11 @@
         
       <% else %>
         <div class="grid-6">
-          <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
-          <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
+          <li><%= link_to "ログイン", new_user_session_path, class: "post" %></li>
+          <li><%= link_to "新規登録", new_user_registration_path, class: "post" %></li>
         </div>
         
       <% end %>
-      
     </ul>
   </div>
 </nav>

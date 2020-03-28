@@ -42,7 +42,12 @@ gem 'kaminari'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-gem "aws-sdk-s3", require: false
+gem 'redcarpet', '~> 2.3.0'
+gem 'coderay'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'rails_admin', '~> 2.0.0.beta'
+gem 'cancancan'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
