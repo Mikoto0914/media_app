@@ -1,24 +1,32 @@
-# README
+#  メディア系ブログサービス
+基本的なブログサービスの機能を実装したポートフォリオです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### 🌐App URL
+**https://media-application.com** 
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+ 
+## 使用技術
+- Ruby version: 2.7.0 (x86_64-linux)  
+- Rails version: 5.2.4.1  
+- Docker 
+- AWS(EC2)
 
-* Configuration
+## アプリ機能
+### 記事関連
+- 記事一覧表示機能  
+- 記事詳細表示機能 
+- 記事投稿機能 
+- 記事編集機能
+- 記事検索機能
+- プレビュー機能
+- 下書き機能
+- 記事ストック機能
 
-* Database creation
+### ユーザ関連
+- 管理ユーザ機能
+- ユーザ登録機能
+- ユーザ編集機能
+- ログイン・ログアウト機能
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
