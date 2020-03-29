@@ -12,12 +12,12 @@ class User < ApplicationRecord
                 message: 'は小文字英数字で入力してください'
             }   
       
-  #いいねをしているのか判定
+  #いいねをすでにしているのか判定
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
   end
   
-  #ストックしているのか判定
+  #ストックをすでにしているのか判定
   def already_stocked?(post)
     self.stocks.exists?(post_id: post.id)
   end
