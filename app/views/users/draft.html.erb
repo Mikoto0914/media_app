@@ -5,12 +5,12 @@
   </div>
   
   <div class="col s9"><br>
-      <ul class="tabs">
-        <li class="tab col s3"><%= link_to "下書き一覧(#{@posts_draft.count})", "#draft" %></li>
-        <li class="tab col s3"><%= link_to "投稿記事一覧(#{@posts_release.count})", "#release" %></li>
-      </ul>
-      <div id="draft"><%= render partial: "commons/articles_list", locals: { posts: @posts_draft } %></div>
-      <div id="release"><%= render partial: "commons/articles_list", locals: { posts: @posts_release } %></div>
+    <ul class="tabs">
+      <li class="tab col s3"><%= link_to "下書き一覧(#{@posts_draft.count})", "#draft" %></li>
+      <li class="tab col s3"><%= link_to "投稿記事一覧(#{@posts_release.count})", "#release" %></li>
+    </ul>
+    <div id="draft"><%= render partial: "commons/articles_list", locals: { posts: @posts_draft } %></div>
+    <div id="release"><%= render partial: "commons/articles_list", locals: { posts: @posts_release } %></div>
   </div>
 </div>
 
