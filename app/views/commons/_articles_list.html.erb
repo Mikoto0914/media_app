@@ -1,10 +1,9 @@
 <ul class="collection">
-  
   <% posts.each do |post| %>
     <li class="collection-item avatar">
       
       <%= link_to image_tag("#{post.user.image}", class: "circle responsive-img"), "/users/#{post.user.id}" %>
-      <span class="title"><%= link_to(post.title, "/posts/#{post.id}", class: "black-text") %></span>
+      <span class="title"><%= link_to(post.title, "/posts/#{post.id}", class: "black-text truncate") %></span>
       
       <p class="grey-text lighten-3">
         <%= link_to post.user.name, "/users/#{post.user.id}" %>
@@ -16,6 +15,7 @@
     </li>
   <% end %>
 </ul>
+
 <%= paginate posts ,class: "pagination"%>
 
   
