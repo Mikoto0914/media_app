@@ -7,6 +7,10 @@ class Post < ApplicationRecord
   has_many :likes
   has_many :liked_users, through: :likes, source: :user
   
+  validates :title,
+            presence: true,
+            length: { maximum: 10 }
+  
   #いいね数の降順に並び替える
   def self.create_all_ranks
     Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
