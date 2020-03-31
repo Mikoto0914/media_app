@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   
   validates :title,
             presence: true,
-            length: { maximum: 10 }
+            length: { maximum: 50 }
   
   #いいね数の降順に並び替える
   def self.create_all_ranks
