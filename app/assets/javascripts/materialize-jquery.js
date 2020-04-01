@@ -3,4 +3,5 @@ $(window).on('load', function() {
   $('.tabs').tabs();
   $('.tooltipped').tooltip();
   $('.modal').modal();
+  $('.slider').slider();
 });
