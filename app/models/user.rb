@@ -12,22 +12,22 @@ class User < ApplicationRecord
                 message: 'は小文字英数字で入力してください'
             }   
       
-  #いいねをしているのか判定
+  #いいねをすでにしているのか判定
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
   end
   
-  #ストックしているのか判定
+  #ストックをすでにしているのか判定
   def already_stocked?(post)
     self.stocks.exists?(post_id: post.id)
   end
   
   mount_uploader :image, ImageUploader
   
-  has_many :posts
-  has_many :stocks
-  has_many :stocked_posts, through: :stocks, source: :post
-  has_many :likes
-  has_many :liked_posts, through: :likes, source: :post
+  has_many :posts, dependent: :destroy
+  has_many :stocks, dependent: :destroy
+  has_many :stocked_posts, through: :stocks, source: :post, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post, dependent: :destroy
 
 end

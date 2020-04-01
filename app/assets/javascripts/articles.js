@@ -9,8 +9,8 @@ $(window).on('load', function() {
     var timer_id = setTimeout(ajaxAutoSave, 5000);
     clearTimeout(timer_id);
     
-    //保存ボタン押下時保存
-    $('#article_save').click(function(){
+    //保存、プレビューボタン押下時保存
+    $('#article_save > .form-group').on('click',function() {
       ajaxAutoSave();
     })
 
