@@ -43,7 +43,7 @@ Rails,Docker,AWSの学習のため作成した、基本的なブログサービ�
 ### 1. 記事一覧機能
 ![記事一覧](https://user-images.githubusercontent.com/57606507/78241991-3fe92700-751c-11ea-88b6-68fbb6062fb7.png)
 ### 2. 記事検索機能
-![記事検索](https://user-images.githubusercontent.com/57606507/78241997-4081bd80-751c-11ea-9ad5-adb23b1c9346.png)
+![記事検索](https://user-images.githubusercontent.com/57606507/78248488-ade71b80-7527-11ea-807f-5da7ceb0812d.png)
 ### 3. 記事詳細表示機能
 ![記事詳細表示](https://user-images.githubusercontent.com/57606507/78242000-411a5400-751c-11ea-9830-d3988be89a1d.png)
 ### 4. 記事編集機能
