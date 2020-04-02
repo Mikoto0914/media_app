@@ -13,10 +13,11 @@ Rails,Docker,AWSの学習のため作成した、基本的なブログサービ�
 - Rails version: 5.2.4.1  
 - Docker 
 - AWS(EC2,VPC,Route 53,Certificate Manager)
+
 <p align="center">
-<img src="https://user-images.githubusercontent.com/57606507/77855371-00c08a80-722b-11ea-9640-2e16b62f09d8.png" height="150px;" />
-<img src="https://user-images.githubusercontent.com/57606507/77855073-1d5bc300-7229-11ea-807f-25ec7522d274.png" height="120px;" />
-<img src="https://user-images.githubusercontent.com/57606507/77855062-0f0da700-7229-11ea-8ae0-0f2be434138d.png" height="100px;" />
+<img src="https://user-images.githubusercontent.com/57606507/78248075-ecc8a180-7526-11ea-985e-d74e30799ae2.png" height="80px;" />
+<img src="https://user-images.githubusercontent.com/57606507/78248084-f0f4bf00-7526-11ea-8fa9-e79ffa6ce020.png" height="100px;" />
+<img src="https://user-images.githubusercontent.com/57606507/78248089-f3571900-7526-11ea-8fb3-5fd30f0f1df3.png" height="100px;" />
 </p>
 
 ## アプリ機能
