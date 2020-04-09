@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.create!(
+  [
+    {
+      name: 'admin',
+      email: 'admin@example.com',
+      image: open("#{Rails.root}/public/admin.png"),
+      password: 'password', 
+      admin: true
+    },
+    {
+      name: 'normal', 
+      email: 'normal@example.com', 
+      password: 'password' 
+    }
+  ]
+)
