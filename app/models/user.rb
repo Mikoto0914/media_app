@@ -24,6 +24,11 @@ class User < ApplicationRecord
     self.stocks.exists?(post_id: post.id)
   end
   
+  #ユーザの総いいね数（最大５件）
+  def self.create_all_user_ranks
+    User.joins(posts: :likes).group("posts.user_id").limit(5).order('count(post_id) desc').count
+  end
+  
   mount_uploader :image, ImageUploader
   
   has_many :posts, dependent: :destroy
