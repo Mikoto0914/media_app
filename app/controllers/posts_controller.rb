@@ -4,12 +4,14 @@ class PostsController < ApplicationController
   before_action :set_target_post, only: [:show, :edit, :update, :destroy, :post_up]
   
   def index
-    @latest = Post.where(publish_flg: true).order(updated_at: "DESC")   #更新順
-    @all_ranks=Post.create_all_ranks.select{ |post| post.publish_flg==true } #いいね順
+    @latest = Post.where(publish_flg: true).order(updated_at: "DESC")         #記事更新順
+    @all_ranks=Post.create_all_ranks.select{ |post| post.publish_flg==true }  #記事いいね順
+    @all_user_ranks= User.create_all_user_ranks                         #ユーザの総いいね順
     
     #ページネーション（最大２０件）
     @posts_all_ranks = Kaminari.paginate_array(@all_ranks).page(params[:page]).per(20)
     @posts_latest = @latest.page(params[:page]).per(20)
+    
   end
   
   def search
