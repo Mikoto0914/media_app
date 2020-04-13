@@ -3,5 +3,8 @@ $(window).on('load', function() {
   $('.tabs').tabs();
   $('.tooltipped').tooltip();
   $('.modal').modal();
-  $('.slider').slider();
+  $('.slider').slider({ height: 250 });
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true
+  });
 });
