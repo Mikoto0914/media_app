@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe PostsController, type: :controller do
-  
+
   describe "GET #index" do
     it "正常なレスポンスか" do
       get :index
@@ -45,5 +45,5 @@ RSpec.describe PostsController, type: :controller do
       expect(assigns(:post)).to eq @post
     end
   end
-  
+
 end
