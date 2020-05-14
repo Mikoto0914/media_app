@@ -45,4 +45,8 @@ RSpec.describe PostsController, type: :controller do
       expect(assigns(:post)).to eq @post
     end
   end
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
 end
