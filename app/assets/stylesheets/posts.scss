@@ -7,14 +7,6 @@ ul.center li {
   font-weight:bold;
 }
 
-a{
-  text-decoration:none;
-}
-
-a:hover {
-  text-decoration:underline;
-}
-
 .article_frame {
   margin: 0 auto;
   max-width: 800px;
@@ -38,4 +30,39 @@ a:hover {
 
 .slider-lyout{
   width: 300px;
+}
+
+.title-font{
+  font-size: 18px;
+  font-weight:bold; 
+}
+
+#index-article-list-area{
+  
+  .card-grid{
+    margin: 20px -10px -40px;
+    
+  }
+  
+  .card-content{
+    word-wrap: break-word;
+  }
+  
+  .card-image{
+    height: 200px;
+    border-top: solid 5px #64b5f6;
+    border-bottom: solid 5px #64b5f6;
+  }
+  
+  .card-title{
+    border-bottom: thin solid #e0e0e0;
+  }
+  
+  .overview-content{
+    font-size: 12px;
+  }
+  
+  .grey-text{
+    font-size: 12px;
+  }
 }

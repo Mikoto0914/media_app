@@ -14,6 +14,8 @@ class Post < ApplicationRecord
   validates :content,
             presence: true,
             length: { maximum: 5000 }
+            
+  mount_uploader :thumbnail_image, ImageUploader
   
   #いいね数の降順に並び替える
   def self.create_all_ranks

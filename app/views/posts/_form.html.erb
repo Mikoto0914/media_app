@@ -7,6 +7,19 @@
       <%= f.text_field :title, autofocus: true, class: "form-control" %>
     </div>
     
+    <%= f.label :thumbnail_image, "サムネ画像" %>
+    <div class="form-group">
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>ファイルを選択</span>
+          <%= f.file_field :thumbnail_image, class: "form-control" %>
+        </div>
+        <div class="file-path-wrapper">
+          <%= text_field_tag "thumbnail_image", post.thumbnail_image, class: "file-path validate" %>
+        </div>
+      </div>
+    </div>
+    
     <div class="form-group">
       <%= f.label :content, "投稿内容" %>
       <%= f.text_area :content, id: "ajax-form-tmp", class: "form-control textlines" %>

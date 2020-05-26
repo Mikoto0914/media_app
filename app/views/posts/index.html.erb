@@ -10,8 +10,8 @@
       <li class="tab col s3"><%= link_to "人気", "#popular" %></li>
     </ul>
     
-    <div id="latest"><%= render partial: "commons/articles_list", locals: { posts: @posts_latest } %></div>
-    <div id="popular"><%= render partial: "commons/articles_list", locals: { posts: @posts_all_ranks } %></div>
+    <div id="latest"><%= render partial: "commons/index_articles_list", locals: { posts: @posts_latest } %></div>
+    <div id="popular"><%= render partial: "commons/index_articles_list", locals: { posts: @posts_all_ranks } %></div>
   </div>
   
   <div class="col s3"><br>

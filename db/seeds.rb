@@ -26,7 +26,8 @@ User.create!(
 )
 Post.create!(
   user_id: 1,
-    publish_flg: true,
+  publish_flg: true,
+  thumbnail_image: open("#{Rails.root}/public/blog_sample_2.jpg"),
   title: '本サービスについて',
   content: 
 '本サービスは、基本的なブログサービスの機能を実装したポートフォリオです。
