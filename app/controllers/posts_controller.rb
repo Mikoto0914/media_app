@@ -6,12 +6,12 @@ class PostsController < ApplicationController
   def index
     @latest = Post.where(publish_flg: true).order(updated_at: "DESC")         #記事更新順
     @all_ranks=Post.create_all_ranks.select{ |post| post.publish_flg==true }  #記事いいね順
+    @all_user_ranks= User.create_all_user_ranks                               #ユーザの総いいね順
 
-    @all_user_ranks= User.create_all_user_ranks                         #ユーザの総いいね順
-    
     #ページネーション（最大２０件）
     @posts_all_ranks = Kaminari.paginate_array(@all_ranks).page(params[:page]).per(20)
     @posts_latest = @latest.page(params[:page]).per(20)
+
   end
 
   def search
@@ -36,8 +36,10 @@ class PostsController < ApplicationController
     @user = @post.user
     @like = Like.new
     @stock = Stock.new
-    if @post.publish_flg == false
-      redirect_to root_path
+    if user_signed_in? == false && @post.publish_flg == false
+        redirect_to root_path
+    elsif @post.publish_flg == false && @post.user_id != current_user.id
+        redirect_to root_path
     end
   end
 
@@ -64,10 +66,11 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:user_id, :title, :content, :publish_flg)
+    params.require(:post).permit(:user_id, :title, :content,:thumbnail_image, :publish_flg)
   end
 
   def set_target_post
     @post = Post.find(params[:id])
   end
+
 end

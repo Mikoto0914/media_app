@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_195544) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.boolean "publish_flg", default: false, null: false
+    t.string "thumbnail_image"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
