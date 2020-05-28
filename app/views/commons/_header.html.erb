@@ -1,66 +1,98 @@
-<% if user_signed_in? %>
-  <ul id="dropdown1" class="dropdown-content">
-    <li><%= link_to "マイページ", "/users/#{current_user.id}" %></li>
-    <li class="divider"></li>
-    <li><%= link_to "下書き一覧", users_draft_path %></li>
-    <li class="divider"></li>
-    <li><%= link_to "アカウント設定", edit_user_registration_path %></li>
-    <li class="divider"></li>
-    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-  </ul>
-<% end %>
-
-<nav class="nav-extended">
-  <div class="nav-wrapper">
-    <a href="/" class="brand-logo"><i class="material-icons">home</i></a>
+<div id="header-area">
+  <% if user_signed_in? %>
+    <ul id="dropdown1" class="dropdown-content">
+      <li><%= link_to "マイページ", "/users/#{current_user.id}" %></li>
+      <li class="divider"></li>
+      <li><%= link_to "下書き一覧", users_draft_path %></li>
+      <li class="divider"></li>
+      <li><%= link_to "アカウント設定", edit_user_registration_path %></li>
+      <li class="divider"></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+    </ul>
+    
+    <ul id="slide-out" class="sidenav">
+      <li><div class="user-view">
+        <div class="background">
+          <%= image_tag "/blog_sample_1.jpg", :size => '500x233' %>
+        </div>
+        <%= link_to image_tag("#{current_user.image}", class: "circle responsive-img"), "/posts/#{current_user.id}" %>
+        <%= link_to current_user.name, "/posts/#{current_user.id}", class: "name" %>
+        <span class="blue-text lighten-2 email"><%= current_user.email %></span>
+      </div></li>
+      <li><%= link_to "トップページ", root_path, class: "font-bold" %></li>
+      <li><%= link_to "マイページ", "/users/#{current_user.id}", class: "font-bold" %></li>
+      <li><%= link_to "新規投稿", "/posts/new", class: "font-bold" %></li>
+      <li><%= link_to "下書き一覧", users_draft_path, class: "font-bold" %></li>
+      <li><%= link_to "お気に入り一覧", "/users/favorite", class: "font-bold" %></li>
+      <li><%= link_to "アカウント設定", edit_user_registration_path, class: "font-bold" %></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "font-bold" %></li>
+    </ul>
+  <% end %>
+  
+  <nav class="nav-extended">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo"><i class="material-icons">home</i></a>
+      
+      <% if user_signed_in? %>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <% else %>
+        <%= link_to "ログイン", new_user_session_path, class: "post sidenav-trigger" %>
+        <%= link_to "新規登録", new_user_registration_path, class: "post sidenav-trigger" %>
+      <% end %>
+      
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         
-      <% if user_signed_in? %>
-        <div class="user_nav grid-6">
-          <% if current_user.try(:admin?) %>
-            <li><%= link_to "管理画面", "/admin" %></li>
-          <% end %>  
-          <li><%= link_to "お気に入り一覧", "/users/favorite" %></li>
-          <li><%= link_to "新規投稿", "/posts/new" %></li>
-          <li>
-            <a class="dropdown-trigger" href="#!" data-target="dropdown1">
-              <div class="chip">
-                <%= image_tag "#{current_user.image}" %>
-                <%= current_user.name %>
-              </div>
-              <i class="material-icons right">arrow_drop_down</i>
-            </a>
-          </li>
-        </div>
-        
-      <% else %>
-        <div class="grid-6">
-          <li><%= link_to "ログイン", new_user_session_path, class: "post" %></li>
-          <li><%= link_to "新規登録", new_user_registration_path, class: "post" %></li>
-        </div>
-      <% end %>
-    </ul>
-  </div>
-  
-  <% unless user_signed_in? %>
-  
-    <div class="nav-content container">
-      <div class="center-align">
-        <span class="nav-title center-align">ブログサービス</span>
-        <p>本サービスはポートフォリオとして作成したメディア系のブログサービスです。</p>
-        <p>下記がアカウント情報となりますので、自由にログインしてみてください。</p>
-        <p>個人情報などは書き込まないようにお願い致します。</p>
-        <br>
-        <p><strong>管理者ユーザー</strong></p>
-        <p>メールアドレス: admin@example.com</p>
-        <p>パスワード: password</p>
-        <br>
-        <p><strong>非管理者ユーザー</strong></p>
-        <p>メールアドレス: normal@example.com</p>
-        <p>パスワード: password</p>
-        <br>
-      </div>
+        <% if user_signed_in? %>
+          
+          <div class="user_nav grid-6">
+            <% if current_user.try(:admin?) %>
+              <li><%= link_to "管理画面", "/admin" %></li>
+            <% end %>  
+            <li><%= link_to "お気に入り一覧", "/users/favorite" %></li>
+            <li><%= link_to "新規投稿", "/posts/new" %></li>
+            <li>
+              <a class="dropdown-trigger" href="#!" data-target="dropdown1">
+                <div class="chip">
+                  <%= image_tag "#{current_user.image}" %>
+                  <%= current_user.name %>
+                </div>
+                <i class="material-icons right">arrow_drop_down</i>
+              </a>
+            </li>
+          </div>
+          
+        <% else %>
+          <div class="grid-6">
+            <li><%= link_to "ログイン", new_user_session_path, class: "post" %></li>
+            <li><%= link_to "新規登録", new_user_registration_path, class: "post" %></li>
+          </div>
+        <% end %>
+      </ul>
     </div>
     
-  <% end %>
-</nav>
+    <% unless user_signed_in? %>
+    
+      <div class="nav-content container">
+        <div class="center-align">
+          <span class="nav-title center-align">ブログサービス</span>
+          <p>本サービスはポートフォリオとして作成したメディア系のブログサービスです。</p>
+          <p>下記がアカウント情報となりますので、自由にログインしてみてください。</p>
+          <p>個人情報などは書き込まないようにお願い致します。</p>
+          <br>
+          <p><strong>管理者ユーザー</strong></p>
+          <p>メールアドレス: admin@example.com</p>
+          <p>パスワード: password</p>
+          <br>
+          <p><strong>非管理者ユーザー</strong></p>
+          <p>メールアドレス: normal@example.com</p>
+          <p>パスワード: password</p>
+          <br>
+        </div>
+      </div>
+      
+    <% end %>
+  </nav>
+</div>
+
+  
+        

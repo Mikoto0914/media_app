@@ -6,7 +6,6 @@
       
         <div class="card medium">
           <div class="card-image blue lighten-5">
-            
             <% if post.thumbnail_image? %>
               <%= link_to image_tag("#{post.thumbnail_image}", class: "responsive-img"), "/posts/#{post.id}" %>
             <% else %> 
@@ -14,7 +13,6 @@
                <%= markdown(post.content).html_safe %>
               </div>
             <% end %>
-            
           </div>
           
           <div class="card-content">
@@ -26,16 +24,15 @@
               <%= image_tag "#{post.user.image}", class: "circle responsive-img" %>
               <%= link_to post.user.name, "/users/#{post.user.id}" %>
             </div>
+            
             <p class="grey-text lighten-3">
               <%= post.updated_at.strftime("%Y/%m/%d") %>
               <i class="tiny material-icons">thumb_up</i> 
               <%= post.likes.count %>
             </p>
           </div>
-          
         </div>
       </span>
-      
     <% end %>
   </div>
 </div>
