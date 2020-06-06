@@ -30,6 +30,12 @@
               <i class="tiny material-icons">thumb_up</i> 
               <%= post.likes.count %>
             </p>
+            
+            <% post.tags.each do |tag| %>
+              <div class="tag-lyout">
+                <%= tag.name %>
+              </div>
+            <% end %>
           </div>
         </div>
       </span>

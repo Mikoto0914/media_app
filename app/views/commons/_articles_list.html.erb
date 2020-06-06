@@ -10,8 +10,17 @@
         <%= post.updated_at.strftime("%Y/%m/%d") %><br>
         <i class="tiny material-icons">thumb_up</i> 
         <%= post.likes.count %>
+        <% post.tags.each do |tag| %>
+          <span class="tag-lyout">
+            <%= tag.name %>
+          </span>
+        <% end %>
       </p>
-      
+      <div class="secondary-content">
+        <% if post.thumbnail_image? %>
+          <%= image_tag "#{post.thumbnail_image}" %>
+        <% end %>
+      </div>
     </li>
   <% end %>
 </ul>

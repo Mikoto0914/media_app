@@ -1,7 +1,20 @@
+#profile-edit-area{
+  .card-title{
+    font-weight: bold; 
+    word-wrap: break-word;
+  }
+  
+  .card-reveal{
+    word-wrap: break-word;
+  }
+}
+
+
 .profile_textbox{
   width: 200px;
   height: 300px;
 }
+
 .setting_frame{
   margin: 0 auto;
   width: 70%;
