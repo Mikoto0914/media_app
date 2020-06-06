@@ -35,6 +35,8 @@ class PostsController < ApplicationController
     @user = @post.user
     @like = Like.new
     @stock = Stock.new
+    
+    #非公開の記事は本人以外参照できない
     if user_signed_in? == false && @post.publish_flg == false
         redirect_to root_path
     elsif @post.publish_flg == false && @post.user_id != current_user.id
@@ -49,8 +51,15 @@ class PostsController < ApplicationController
   end
 
   def update
+    tag_list = tag_params[:tag_name].split(",",6)  #タグ名を,で区切り、配列にする
+    tag_list.uniq!                                 #重複を削除
+    
+    #タグが5種類以上ならそれ以降のタグを削除する
+    if tag_list.length >= 6
+      tag_list.pop
+    end
+    
     if @post.update(post_params)
-      tag_list = tag_params[:tag_name].split(",")
       @post.save_posts(tag_list)
     end
   end
@@ -81,5 +90,4 @@ class PostsController < ApplicationController
   def set_target_post
     @post = Post.find(params[:id])
   end
-
 end

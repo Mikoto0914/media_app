@@ -1,64 +1,92 @@
 ul.center li {
   _display: inline;
 }
+
 .title{
   width: 95%;
   font-weight:bold;
 }
+
 .article_frame {
   margin: 0 auto;
   max-width: 800px;
   width: 100%;
   word-break: break-all;
 }
+
 .textlines {
   height: 700px;
   resize: vertical;
 }
+
 .input-field{
   width: 85%;
   display:inline-block;
 }
+
 #header-area{
   a{
     text-decoration:none;
   }
+  
   a:hover {
     text-decoration: none;
   }
+  
   .font-bold{
     font-weight: bold; 
     color: #42a5f5;
   }
 }
+
+.secondary-content{
+  img{
+      height: 55px;
+      object-fit: cover;
+    }
+}
+
 #index-article-list-area{
   .card-grid{
     margin: 20px -10px -40px;
   }
+  
   .card-content{
     word-wrap: break-word;
+    padding: 10px 20px 180px;
   }
+  
   .card-image{
     height: 200px;
     border-top: solid 5px #64b5f6;
     border-bottom: solid 5px #64b5f6;
+    img{
+      height: 200px;
+      object-fit: cover;
+    }
   }
+  
   .card-title{
     border-bottom: thin solid #e0e0e0;
   }
+  
   .title-font{
-    font-size: 18px;
+    font-size: 16px;
     font-weight:bold; 
   }
+  
   .overview-content{
     font-size: 12px;
   }
+  
   .grey-text{
     font-size: 12px;
   }
+  
   a{
     text-decoration:none;
   }
+  
   a:hover {
     text-decoration:underline;
     color: #64b5f6;
