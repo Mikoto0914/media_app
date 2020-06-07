@@ -1,8 +1,6 @@
 <div class="row">
- 
-  <div class="col s6 m0 l2"></div>
   
-  <div class="col s12 m12 l7">
+  <div class="col s12 m12 l9">
     <%= render partial: "search_form" %>
     
     <ul class="tabs">
@@ -14,9 +12,10 @@
     <div id="popular"><%= render partial: "commons/index_articles_list", locals: { posts: @posts_all_ranks } %></div>
   </div>
   
-  <div class="col s8 m0 l3"><br>
+  <div class="col s12 m0 l3"><br>
     <%= render partial: "commons/slider" %>
     <%= render partial: "user_rank_list", locals: { users: @all_user_ranks } %>
+    <%= render partial: "tag_rank_list", locals: { tags: @tag_ranks } %>
   </div>
   
 </div>

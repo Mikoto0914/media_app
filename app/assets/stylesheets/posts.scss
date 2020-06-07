@@ -24,18 +24,9 @@ ul.center li {
   display:inline-block;
 }
 
-#header-area{
-  a{
-    text-decoration:none;
-  }
-  
-  a:hover {
-    text-decoration: none;
-  }
-  
-  .font-bold{
-    font-weight: bold; 
-    color: #42a5f5;
+#article-list-area{
+  .collection-padding{
+    padding-right: 150px;
   }
 }
 
@@ -90,5 +81,8 @@ ul.center li {
   a:hover {
     text-decoration:underline;
     color: #64b5f6;
+  }
+  .pagination{
+    margin-top: 50px;
   }
 }

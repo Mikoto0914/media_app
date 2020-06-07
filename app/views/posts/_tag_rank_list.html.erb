@@ -1,0 +1,20 @@
+<div id="rank-list-area">
+  <ul class="collection with-header">
+    <li class="collection-header">
+      <div class="valign-wrapper"><i class="material-icons">local_offer</i>タグランキング</div>
+    </li>
+    <ol type="1" class="ol1">
+      <% tags.each do |tag| %>
+        <li class="collection-item rank-lyout">
+          <div class="chip">
+            <%= Tag.find(tag[0]).name %>
+          </div>
+          <div class="secondary-content center">
+            <span class="font-bold"><%= "#{tag[1]}" %></span><br>
+            posts
+          </div>
+        </li>
+      <% end %>
+    </ol>
+  </ul>
+</div>

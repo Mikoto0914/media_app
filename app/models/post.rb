@@ -20,14 +20,17 @@ class Post < ApplicationRecord
   mount_uploader :thumbnail_image, ImageUploader
   
   #いいね数の降順に並び替える
-  def self.create_all_ranks
+  def self.create_like_ranks
     Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
   end
   
-  #入力された値をタイトル、記事内容から探す
+  #入力されたキーワードをタイトル、記事内容、タグから探す
   def self.search(search)
-    return Post.all unless search
-    Post.where(['title LIKE ? or content LIKE ?', "%#{search}%", "%#{search}%"])
+    if search
+      Post.eager_load(:tags).where(['title LIKE ? or content LIKE ? or tags.name LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
+    else
+      Post.all
+    end
   end
   
   #タグの名前を登録する
