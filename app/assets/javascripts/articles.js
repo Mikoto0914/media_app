@@ -25,3 +25,22 @@ $(window).on('load', function() {
     });
 
 });
+
+//出力文字数を制限する
+$(function() {
+   var count = 150;
+   var insertText;
+   var showText;
+ $('.text_limit').each(function() {
+     var thisText = $(this).text();
+      var textLength = thisText.length;
+       if (textLength > count) {
+          showText = thisText.substring(0, count);
+          insertText = showText += '…';
+          $(this).html(insertText);
+      } else {
+        showText = thisText.substring(0, thisText.length);
+        $(this).html(showText);
+      };
+  });
+});

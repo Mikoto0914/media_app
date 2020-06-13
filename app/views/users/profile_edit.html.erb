@@ -1,37 +1,47 @@
-<div class="row">
-  <div class="col s3">
-    <%= render partial: "commons/profile", locals: { user: current_user } %>
-    <%= render "commons/collection" %>
-  </div>
-  
-  <div class="col s9">
-    <div class="card-panel white setting_frame">
-      <h4 class="blue-text text-darken-2">プロフィール編集</h4><hr>
-      
-      <%= form_for(current_user, url: user_registration_path, html: { method: :put }) do |f| %>
-      
-        <h5 class="blue-text text-darken-2">ユーザ名変更</h5>
-        <div class="form-group">
-          <%= f.label "ユーザー名" %>
-          <%= f.text_field :name, autofocus: true, class: "form-control validate" %>
-        </div><br>
+<div id="profile-edit-area">
+  <div class="row">
+    <div class="col s3">
+      <%= render partial: "commons/profile", locals: { user: current_user } %>
+      <%= render "commons/collection" %>
+    </div>
+    
+    <div class="col s9">
+      <div class="card-panel white setting_frame">
+        <h4 class="blue-text text-darken-2">プロフィール編集</h4><hr>
         
-        <h5 class="blue-text text-darken-2">アイコン変更</h5>
-        <div class="form-group">
-          <%= f.label :image %>
-          <%= f.file_field :image, class: "form-control validate btn" %>
-        </div><br>
+        <%= form_for(current_user, url: user_registration_path, html: { method: :put }) do |f| %>
         
-        <h5 class="blue-text text-darken-2">自己紹介</h5>
-        <div class="form-group">
-          <%= f.label :profile, "(255文字未満)" %>
-          <%= f.text_area :profile, :maxlength => "255", size: "100x100", class: "form-control validate profile_textbox"  %>
-        </div><hr>
-        
-        <div class="actions">
-          <%= f.submit "変更する" ,class: "btn white-text"%>
-        </div>
-      <% end %>
+          <h5 class="blue-text text-darken-2">ユーザ名変更</h5>
+          <div class="form-group">
+            <%= f.label "ユーザー名" %>
+            <%= f.text_field :name, autofocus: true, class: "form-control validate" %>
+          </div><br>
+          
+          <h5 class="blue-text text-darken-2">アイコン変更</h5>
+          <%= f.label :image, "プロフィール画像" %>
+          <div class="form-group">
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>ファイルを選択</span>
+                <%= f.file_field :image %>
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
+            </div>
+          </div>
+          
+          <h5 class="blue-text text-darken-2">自己紹介</h5>
+          <div class="form-group">
+            <%= f.label :profile, "(255文字未満)" %>
+            <%= f.text_area :profile, :maxlength => "255", size: "100x100", class: "form-control validate profile_textbox"  %>
+          </div><hr>
+          
+          <div class="actions">
+            <%= f.submit "変更する" ,class: "btn white-text"%>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

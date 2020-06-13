@@ -1,17 +1,23 @@
-<ul class="collection with-header user-rank-lyout">
-  <li class="collection-header">
-    <div class="valign-wrapper"><i class="material-icons">equalizer</i>ユーザーランキング</div>
-  </li>
-  
-  <% users.each do |user| %>
-    <li class="collection-item">
-      <div>
-        <div class="chip">
-          <%= image_tag "#{User.find(user[0]).image}" %>
-          <%= link_to User.find(user[0]).name, "/users/#{User.find(user[0]).id}" %>
-        </div>
-        <h6 class="secondary-content"><%= "#{user[1]}like" %></h6>
-      </div>
+<div id="rank-list-area">
+  <ul class="collection with-header user-rank-lyout">
+    <li class="collection-header">
+      <div class="valign-wrapper"><i class="material-icons">equalizer</i>ユーザーランキング</div>
     </li>
-  <% end %>
-</ul>
+    <ol type="1" class="ol1">
+    <% users.each do |user| %>
+      <li class="collection-item rank-lyout">
+        <div>
+          <div class="chip">
+            <%= image_tag "#{User.find(user[0]).image}" %>
+            <%= link_to User.find(user[0]).name, "/users/#{User.find(user[0]).id}" %>
+          </div>
+          <div class="secondary-content center">
+            <span class="font-bold"><%= "#{user[1]}" %></span><br>
+            likes
+          </div>
+        </div>
+      </li>
+    <% end %>
+    </ol>
+  </ul>
+</div>

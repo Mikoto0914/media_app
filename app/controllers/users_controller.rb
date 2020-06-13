@@ -5,9 +5,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @posts_latest = article_extraction(params[:id], true)
-    @my_ranks = Post.create_all_ranks.select{ |post| post.user_id == @user.id && post.publish_flg==true }
+    my_ranks = Post.create_like_ranks.select{ |post| post.user_id == @user.id && post.publish_flg==true }
     
-    @posts_my_ranks = Kaminari.paginate_array(@my_ranks).page(params[:page]).per(20)
+    @posts_my_ranks = Kaminari.paginate_array(my_ranks).page(params[:page]).per(20)
     @posts_likes = @user.liked_posts.page(params[:page]).per(20)
   end
   

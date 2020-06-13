@@ -11,10 +11,10 @@
           <%= image_tag "#{@post.user.image}" %>
           <%= link_to @post.user.name, "/users/#{@post.user.id}" %>
         </div>
-        
         <%= @post.updated_at.strftime("%Y年%m月%d日") %><br>
-        <h3><%= @post.title %></h3><hr>
+        <%= render partial: "commons/tag_list", locals: { post: @post } %>
         
+        <h3><%= @post.title %></h3><hr>
         <%= markdown(@post.content).html_safe %>
       </div>
     </div>

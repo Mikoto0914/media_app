@@ -1,16 +1,18 @@
-<div class="card">
-  
-  <div class="card-image waves-effect waves-block waves-light">
-    <%= image_tag "#{user.image}" %>
+<div id="profile-edit-area">
+  <div class="card">
+    
+    <div class="card-image waves-effect waves-block waves-light">
+      <%= image_tag "#{user.image}" %>
+    </div>
+    
+    <div class="card-content">
+      <span class="card-title activator"><%= user.name %><i class="material-icons right">expand_less</i></span>
+    </div>
+    
+    <div class="card-reveal">
+      <span class="card-title"><%= user.name %><i class="material-icons right">expand_more</i></span>
+      <p><%= simple_format(user.profile) %></p>
+    </div>
+    
   </div>
-  
-  <div class="card-content">
-    <span class="card-title activator text-bold"><%= user.name %><i class="material-icons right">expand_less</i></span>
-  </div>
-  
-  <div class="card-reveal">
-    <span class="card-title"><%= user.name %><i class="material-icons right">expand_more</i></span>
-    <p><%= simple_format(user.profile) %></p>
-  </div>
-  
 </div>
