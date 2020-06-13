@@ -1,5 +1,7 @@
-<% post.tags.each do |tag| %>
-  <span class="tag-lyout">
-    <%= tag.name %>
-  </span>
-<% end %>
+<span id="tag-list-area">
+  <% post.tags.each do |tag| %>
+    <span class="tag-lyout">
+      <%= tag.name %>
+    </span>
+  <% end %>
+</span>
