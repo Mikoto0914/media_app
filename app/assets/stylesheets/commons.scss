@@ -23,21 +23,28 @@ footer{
   font-weight: bold; 
 }
 
-.tag-lyout {
-  font-size: 12px;
-  color: #505050;
-  padding: 0.2em 0.3em 0.4em;
-  display: inline-block;
-  line-height: 1;
-  background: #dbebf8;
-  vertical-align: middle;
-  border-radius: 25px 0px 0px 25px;
+#header-area{
+  a{
+    text-decoration:none;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  .font-bold{
+    font-weight: bold; 
+    color: #42a5f5;
+  }
 }
 
-.tag-lyout:before {
-  content: '●';
-  color: white;
-  margin-right: 3px;
+#rank-list-area{
+  .rank-lyout{
+    padding-left: 10px;
+  }
+  
+  .font-bold{
+    font-weight: bold; 
+    color: #42a5f5;
+  }
 }
-
-

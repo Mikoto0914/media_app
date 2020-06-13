@@ -1,29 +1,27 @@
-<ul class="collection">
-  <% posts.each do |post| %>
-    <li class="collection-item avatar">
-      
-      <%= link_to image_tag("#{post.user.image}", class: "circle responsive-img"), "/users/#{post.user.id}" %>
-      <span class="title"><%= link_to(post.title, "/posts/#{post.id}", class: "black-text truncate") %></span>
-      
-      <p class="grey-text lighten-3">
-        <%= link_to post.user.name, "/users/#{post.user.id}" %>
-        <%= post.updated_at.strftime("%Y/%m/%d") %><br>
-        <i class="tiny material-icons">thumb_up</i> 
-        <%= post.likes.count %>
-        <% post.tags.each do |tag| %>
-          <span class="tag-lyout">
-            <%= tag.name %>
-          </span>
-        <% end %>
-      </p>
-      <div class="secondary-content">
-        <% if post.thumbnail_image? %>
-          <%= image_tag "#{post.thumbnail_image}" %>
-        <% end %>
-      </div>
-    </li>
-  <% end %>
-</ul>
+<div id="article-list-area">
+  <ul class="collection">
+    <% posts.each do |post| %>
+      <li class="collection-item avatar">
+        
+        <%= link_to image_tag("#{post.user.image}", class: "circle responsive-img"), "/users/#{post.user.id}" %>
+        <span class="title"><%= link_to(post.title, "/posts/#{post.id}", class: "truncate collection-padding") %></span>
+        
+        <p class="grey-text lighten-3 collection-padding">
+          <%= link_to post.user.name, "/users/#{post.user.id}" %>
+          <%= post.updated_at.strftime("%Y/%m/%d") %><br>
+          <i class="tiny material-icons">thumb_up</i> 
+          <%= post.likes.count %>
+          <%= render partial: "commons/tag_list", locals: { post: post } %>
+        </p>
+        <div class="secondary-content">
+          <% if post.thumbnail_image? %>
+            <%= image_tag "#{post.thumbnail_image}" %>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
 <%= paginate posts ,class: "pagination"%>
 
   

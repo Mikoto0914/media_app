@@ -1,8 +1,8 @@
-<div class="row">
-  <div id="index-article-list-area">
+<div id="index-articles-list-area">
+  <div class="row">
     
     <% posts.each do |post| %>
-      <span class="col s12 m4 card-grid">
+      <span class="col s12 m4 l3 card-grid">
       
         <div class="card medium">
           <div class="card-image blue lighten-5">
@@ -31,16 +31,13 @@
               <%= post.likes.count %>
             </p>
             
-            <% post.tags.each do |tag| %>
-              <div class="tag-lyout">
-                <%= tag.name %>
-              </div>
-            <% end %>
+            <%= render partial: "commons/tag_list", locals: { post: post } %>
           </div>
         </div>
       </span>
     <% end %>
   </div>
+  <%= paginate posts ,class: "pagination"%>
 </div>
-<%= paginate posts ,class: "pagination"%>
+
 
