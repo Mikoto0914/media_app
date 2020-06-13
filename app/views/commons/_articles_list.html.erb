@@ -4,7 +4,7 @@
       <li class="collection-item avatar">
         
         <%= link_to image_tag("#{post.user.image}", class: "circle responsive-img"), "/users/#{post.user.id}" %>
-        <span class="title"><%= link_to(post.title, "/posts/#{post.id}", class: "black-text truncate collection-padding") %></span>
+        <span class="title"><%= link_to(post.title, "/posts/#{post.id}", class: "truncate collection-padding") %></span>
         
         <p class="grey-text lighten-3 collection-padding">
           <%= link_to post.user.name, "/users/#{post.user.id}" %>
