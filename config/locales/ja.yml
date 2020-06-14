@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: '%{errors}'
+    attributes:
+      post:
+        title: タイトル
+        content: 本文
+        thumbnail_image: サムネ画像
+      tag:
+        name: タグ名
+      
+        
