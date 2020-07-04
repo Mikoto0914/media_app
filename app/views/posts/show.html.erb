@@ -33,7 +33,20 @@
         <%= button_to "はい", @post, class:"waves-light btn red lighten-2", method: :delete  %>
       </div>
     </div>
-      
+    <h5><i class="material-icons">question_answer</i>コメント一覧</h5>
+    <% @comments.each do |c| %>
+      <div>
+        <a href="/users/<%= @post.user.id %>"><%= c.user.name %></a>
+        <%= c.updated_at.strftime("%Y年%m月%d日") %><br>
+        <%= c.content %>
+        <hr>
+      </div>
+    <% end %>
+    <%= form_for [@post, @comment] do |f| %>
+      <%= f.text_field :content %>
+      <br>
+      <%= f.submit 'コメントする' %>
+    <% end %>  
   </div>
 </div>
 
