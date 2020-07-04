@@ -49,7 +49,12 @@
               <%= c.content %>
             </div>
           </div>
-          <div class="right"><%= c.updated_at.strftime("%Y/%m/%d %H:%M") %></div><br>
+          <div class="right">
+            <%= c.updated_at.strftime("%Y/%m/%d %H:%M") %><br>
+            <% if user_signed_in? && c.user.id == current_user.id %>
+              <%=link_to "削除", post_comment_path(c.post.id, c.id), class:"red-text lighten-2", method: :delete %>
+            <% end %>
+          </div>
         </div>
       <% end %>
       
