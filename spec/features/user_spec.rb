@@ -6,7 +6,9 @@ feature "user", type: :feature do
     scenario "新規登録できるか" do
       visit root_path
       expect {
-        click_on("新規登録")
+        within ".grid-6" do
+          click_on("新規登録")
+        end
         fill_in "user_name", with: "test0"
         fill_in "user_email", with: "test0@example.com"
         fill_in "user_password", with: "password"
@@ -17,7 +19,9 @@ feature "user", type: :feature do
     
     scenario "ログインできないか" do
       visit root_path
-      click_on("ログイン")
+      within ".grid-6" do
+        click_on("ログイン")
+      end
       fill_in "user_email", with: "test0@example.com"
       fill_in "user_password", with: "password"
       click_on("ログインする")
@@ -42,13 +46,18 @@ feature "user", type: :feature do
     scenario "マイページへ遷移できるか" do
       visit root_path
       click_on("arrow_drop_down")
-      click_on("マイページ")
+      within ".dropdown-content" do
+        click_on("マイページ")
+      end
       expect(current_path).to eq "/users/#{user.id}"
     end
     
     scenario "名前を変更できるか" do
+      visit root_path
       click_on("arrow_drop_down")
-      click_on("アカウント設定")
+      within ".dropdown-content" do
+        click_on("アカウント設定")
+      end
       click_on("プロフィール編集")
       fill_in "user_name", with: "newname"
       click_on("変更する")
@@ -57,18 +66,16 @@ feature "user", type: :feature do
     end
       
     scenario "アイコンを変更できるか" do
-      click_on("arrow_drop_down")
-      click_on("アカウント設定")
+      visit "/users/edit"
       click_on("プロフィール編集")
       attach_file("user_image", "#{Rails.root}/public/admin.png")
       click_on("変更する")
       visit users_profile_edit_path
-      expect(page).to have_selector("img[src$="admin.png"]")
+      expect(page).to have_selector("img[src$='admin.png']")
     end
     
     scenario "プロフィールを変更できるか" do
-      click_on("arrow_drop_down")
-      click_on("アカウント設定")
+      visit "/users/edit"
       click_on("プロフィール編集")
       fill_in "user_profile", with: "profile-test"
       click_on("変更する")
@@ -77,8 +84,7 @@ feature "user", type: :feature do
     end
     
     scenario "パスワードを変更できるか" do
-      click_on("arrow_drop_down")
-      click_on("アカウント設定")
+      visit "/users/edit"
       fill_in "user_password", with: "123456"
       fill_in "user_current_password", with: "password"
       click_on("パスワードを変更する")
