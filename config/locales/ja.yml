@@ -10,5 +10,7 @@ ja:
         thumbnail_image: サムネ画像
       tag:
         name: タグ名
+      comment:
+        content: コメント
       
         
