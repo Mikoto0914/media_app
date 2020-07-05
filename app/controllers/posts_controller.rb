@@ -36,6 +36,8 @@ class PostsController < ApplicationController
     @user = @post.user
     @like = Like.new
     @stock = Stock.new
+    @comments = @post.comments
+    @comment = Comment.new
     
     #非公開の記事は本人以外参照できない
     if user_signed_in? == false && @post.publish_flg == false

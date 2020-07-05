@@ -4,10 +4,12 @@ class Post < ApplicationRecord
  
   has_many :stocks
   has_many :likes
+  has_many :comments,      dependent: :destroy
   has_many :tag_maps,      dependent: :destroy
   has_many :stocked_users, through:   :stocks, source: :user
   has_many :liked_users,   through:   :likes,  source: :user
   has_many :tags,          through:   :tag_maps
+  
   
   validates :title,
             presence: true,

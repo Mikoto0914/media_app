@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :new, :create, :show] do
     resources :likes,  only: [:create, :destroy]
     resources :stocks, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
   
   devise_for :users, controllers: {
