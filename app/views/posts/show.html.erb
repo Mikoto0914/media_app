@@ -33,7 +33,49 @@
         <%= button_to "はい", @post, class:"waves-light btn red lighten-2", method: :delete  %>
       </div>
     </div>
+  
+    <!--コメント機能-->
+    <div id="comments-area">
+      <!--コメント一覧-->
+      <h5><i class="material-icons">question_answer</i> コメント一覧</h5><hr>
+      <% @comments.each do |c| %>
+        <div class="chat">
+          <div class="faceicon">
+            <%= image_tag "#{c.user.image}" %><br>
+            <%= link_to c.user.name, "/users/#{c.user.id}" %>
+          </div>
+          <div class="chatting">
+            <div class="says">
+              <%= c.content %>
+            </div>
+          </div>
+          <div class="right">
+            <%= c.updated_at.strftime("%Y/%m/%d %H:%M") %><br>
+            <% if user_signed_in? && c.user.id == current_user.id %>
+              <%=link_to "削除", post_comment_path(c.post.id, c.id), class:"red-text lighten-2", method: :delete %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
       
+      <!--コメント投稿-->
+      <% if user_signed_in? %>
+        <%= form_for [@post, @comment] do |f| %>
+          <div class="card blue lighten-5">
+            <div class="card-content white-text">
+              <span class="card-title black-text">
+                <i class="material-icons">insert_comment</i> コメント投稿
+              </span>
+              <%= f.text_area :content, class:"grey lighten-5" %>
+            </div>
+            <div class="card-action">
+              <%= f.submit 'コメントする', class: "btn right" %>
+            </div>
+          </div>
+        <% end %>  
+      <% end %>
+    </div>
+    
   </div>
 </div>
 
