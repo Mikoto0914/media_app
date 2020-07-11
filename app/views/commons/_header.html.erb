@@ -1,5 +1,7 @@
 <div id="header-area">
   <% if user_signed_in? %>
+  
+    <!-- PC用 dropdown list -->
     <ul id="dropdown1" class="dropdown-content">
       <li><%= link_to "マイページ", "/users/#{current_user.id}" %></li>
       <li class="divider"></li>
@@ -10,6 +12,7 @@
       <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
     </ul>
     
+    <!-- スマホ用 Sidenav list -->
     <ul id="slide-out" class="sidenav">
       <li><div class="user-view">
         <div class="background">
@@ -33,17 +36,9 @@
     <div class="nav-wrapper">
       <a href="/" class="brand-logo"><i class="material-icons">home</i></a>
       
-      <% if user_signed_in? %>
-        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <% else %>
-        <%= link_to "ログイン", new_user_session_path, class: "post sidenav-trigger" %>
-        <%= link_to "新規登録", new_user_registration_path, class: "post sidenav-trigger" %>
-      <% end %>
-      
+      <!-- PC用ヘッダー -->
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        
         <% if user_signed_in? %>
-          
           <div class="user_nav grid-6">
             <% if current_user.try(:admin?) %>
               <li><%= link_to "管理画面", "/admin" %></li>
@@ -60,7 +55,6 @@
               </a>
             </li>
           </div>
-          
         <% else %>
           <div class="grid-6">
             <li><%= link_to "ログイン", new_user_session_path, class: "post" %></li>
@@ -68,6 +62,14 @@
           </div>
         <% end %>
       </ul>
+      
+      <!-- スマホ用ヘッダー -->
+      <% if user_signed_in? %>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <% else %>
+        <%= link_to "ログイン", new_user_session_path, class: "post sidenav-trigger" %>
+        <%= link_to "新規登録", new_user_registration_path, class: "post sidenav-trigger" %>
+      <% end %>
     </div>
     
     <% unless user_signed_in? %>

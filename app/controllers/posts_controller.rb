@@ -82,6 +82,11 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def markdown
+    @body = params[:body]
+  end
+
+  private
   def post_params
     params.require(:post).permit(:user_id, :title, :content, :thumbnail_image, :publish_flg)
   end

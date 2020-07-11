@@ -15,7 +15,9 @@
         <%= render partial: "commons/tag_list", locals: { post: @post } %>
         
         <h3><%= @post.title %></h3><hr>
-        <%= markdown(@post.content).html_safe %>
+        <div id="markdown-area">
+          <%= markdown(@post.content).html_safe %>
+        </div>
       </div>
     </div>
     <% if user_signed_in? && @user.id==current_user.id %>

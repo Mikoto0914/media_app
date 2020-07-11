@@ -1,41 +1,29 @@
 <!--記事編集フォーム-->
 <div id="post-form-area">
-  <div class="row article_frame">
-    
-    <%= form_for post, html: { id: "ajax-form" }, local: true do |f| %>
-    
-      <div class="form-group">
-        <%= f.label :title, "投稿タイトル" %>
-        <%= f.text_field :title, autofocus: true, class: "form-control" %>
-      </div>
+  <%= form_for post, html: { id: "ajax-form" }, local: true do |f| %>
+    <div class="row article_frame">
       
-      <%= f.label :thumbnail_image, "サムネ画像" %>
-      <div class="form-group">
-        <div class="file-field input-field">
-          <div class="btn">
-            <span>ファイルを選択</span>
-            <%= f.file_field :thumbnail_image, class: "form-control" %>
-          </div>
-          <div class="file-path-wrapper">
-            <%= text_field_tag "thumbnail_image", post.thumbnail_image, class: "file-path validate" %>
-          </div>
+      <div class="top-wrapper">
+        <label>
+          <div class="thumbnail">サムネ画像を選択</div>
+          <%= f.file_field :thumbnail_image, class: "input-thumb post_thumbnail_image", id: "post_thumbnail_image" %>
+        </label>
+        <div class="input-wrapper">
+          <%= f.label :title, "投稿タイトル" %>
+          <%= f.text_field :title %>
+          <%= f.label "タグ" %>
+          <%= f.text_field :tag_name, value: tag_list, placeholder: "タグを　,　区切りで入力（例：Ruby,Rails）" %>
         </div>
       </div>
       
-      <div class="form-group">
-        <%= f.label "タグ" %>
-        <%= f.text_field :tag_name, value: tag_list, :placeholder => "タグを　,　区切りで入力（例：Ruby,Rails）" %>
+      <div class="middle-wrapper" id="markdown-area">
+        <%= f.text_area :content, class: "body input-area" %>
+        <div id="preview" class="input-area"></div>
       </div>
-      
-      <div class="form-group">
-        <%= f.label :content, "投稿内容" %>
-        <%= f.text_area :content, id: "ajax-form-tmp", class: "form-control textlines" %>
-      </div>
-      
+    
       <a class="waves-effect waves-light btn", id="article_save">保存する</a>
       <%= link_to "プレビュー", "/posts/#{post.id}", class: "btn", id: "article_save" %>
       <%= link_to "投稿する", "/posts/#{post.id}/post_up", class: "btn right", method: :post %>
-      
-    <% end %>
-  </div>
+    </div>  
+  <% end %>
 </div>
