@@ -1,0 +1,33 @@
+<!--記事編集フォーム-->
+<div id="header" action="<%= "#{controller.controller_name}##{controller.action_name}" %>"
+  <% if "#{controller.controller_name}##{controller.action_name}" == "posts#edit"%>
+    thumbnail_image ="<%= post.thumbnail_image %>"<% end %>></div>
+<div id="post-form-area">
+  <%= form_for post, html: { id: "ajax-form" }, local: true do |f| %>
+    <div class="row article_frame">
+      
+      <div class="top-wrapper">
+        
+        <label>
+          <div class="thumbnail">サムネ画像を選択</div>
+          <%= f.file_field :thumbnail_image, value: post.thumbnail_image, class: "input-thumb" %>
+        </label>
+        <div class="input-wrapper">
+          <%= f.label :title, "投稿タイトル" %>
+          <%= f.text_field :title %>
+          <%= f.label "タグ" %>
+          <%= f.text_field :tag_name, value: tag_list, placeholder: "タグを　,　区切りで入力（例：Ruby,Rails）" %>
+        </div>
+      </div>
+      
+      <div class="middle-wrapper" id="markdown-area">
+        <%= f.text_area :content, class: "body input-area" %>
+        <div id="preview" class="input-area"></div>
+      </div>
+    
+      <a class="waves-effect waves-light btn", id="article_save">保存する</a>
+      <%= link_to "プレビュー", "/posts/#{post.id}", class: "btn", id: "article_save" %>
+      <%= link_to "投稿する", "/posts/#{post.id}/post_up", class: "btn right", method: :post %>
+    </div>  
+  <% end %>
+</div>

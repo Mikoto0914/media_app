@@ -1,0 +1,22 @@
+<h3><span class="blue-text text-darken-2">ログイン</span></h3>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "ログインする" ,class: "btn white-text"%>
+  </div>
+<% end %>
+<br>
+<%= render "devise/shared/links" %>
+
