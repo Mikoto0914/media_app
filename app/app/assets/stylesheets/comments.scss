@@ -1,0 +1,48 @@
+#comments-area{
+  .chat {
+    width: 100%;
+    margin: 1.5em 0;
+    overflow: hidden;
+    word-break : break-all;
+  }
+  
+  .chat .faceicon {
+    float: left;
+    margin-right: -90px;
+    width: 80px;
+  }
+  
+  .chat .faceicon img{
+    width: 40px;
+    height: auto;
+    border-radius: 50%;
+  }
+  
+  .chat .chatting {
+    width: 100%;
+  }
+  
+  .says {
+    display: inline-block;
+    position: relative; 
+    margin: 0px 0 0 60px;
+    padding: 10px 10px;
+    border-radius: 12px;
+    background: #e3f2fd;
+  }
+  
+  .says:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 10px; 
+    left: -24px;
+    border: 10px solid transparent;
+    border-right: 14px solid #e3f2fd;
+  }
+  
+  .says p {
+    margin: 0;
+    padding: 0;
+  }
+}

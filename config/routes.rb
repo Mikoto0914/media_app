@@ -4,27 +4,30 @@ Rails.application.routes.draw do
     resources :likes,  only: [:create, :destroy]
     resources :stocks, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
+    collection do
+      post "markdown"
+    end
   end
   
   devise_for :users, controllers: {
-    registrations: 'users/registrations',
-    sessions:      'users/sessions'
+    registrations: "users/registrations",
+    sessions:      "users/sessions"
   }
 
-  get  'users/profile_edit' => 'users#profile_edit'
-  get  'users/draft'        => 'users#draft'
-  get  'users/favorite'     => 'users#favorite'
-  get  'users/:id'          => 'users#show'
+  get  "users/profile_edit" => "users#profile_edit"
+  get  "users/draft"        => "users#draft"
+  get  "users/favorite"     => "users#favorite"
+  get  "users/:id"          => "users#show"
   
   Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount RailsAdmin::Engine => "/admin", as: "rails_admin"
     resources :posts
   end
   
   devise_scope :posts do
-    root to: 'posts#index'
-    get      '/search'            => 'posts#search'
-    post     'posts/:id/post_up'  => 'posts#post_up'
+    root to: "posts#index"
+    get      "/search"            => "posts#search"
+    post     "posts/:id/post_up"  => "posts#post_up"
   end
   
 end

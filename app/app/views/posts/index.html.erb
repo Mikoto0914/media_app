@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col s12 m12 l9">
+    <%= render partial: "search_form" %>
+    
+    <ul class="tabs">
+      <li class="tab col s3"><%= link_to "最新", "#latest" %></li>
+      <li class="tab col s3"><%= link_to "人気", "#popular" %></li>
+    </ul>
+    
+    <div id="latest"><%= render partial: "index_articles_list", locals: { posts: @posts_latest } %></div>
+    <div id="popular"><%= render partial: "index_articles_list", locals: { posts: @posts_all_ranks } %></div>
+  </div>
+  
+  <div class="col s12 m0 l3"><br>
+    <%= render partial: "commons/slider" %>
+    <%= render partial: "user_rank_list", locals: { users: @all_user_ranks } %>
+    <%= render partial: "tag_rank_list", locals: { tags: @tag_ranks } %>
+  </div>
+</div>
+  
+

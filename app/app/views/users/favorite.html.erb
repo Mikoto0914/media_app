@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col s3">
+    <%= render partial: "commons/profile", locals: { user: current_user } %>
+    <%= render "commons/collection" %>
+  </div>
+  
+  <div class="col s9"><br>
+    <%= render partial: "commons/articles_list", locals: { posts: @posts_favorite } %>
+  </div>
+</div>
+
+
