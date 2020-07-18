@@ -14,8 +14,8 @@
  *= require_self
  */
 @import "materialize/components/color-variables";
-$primary-color: color("blue", "lighten-2") !default;
-$secondary-color: color("blue", "lighten-2") !default;
+$primary-color: color("blue", "lighten-1") !default;
+$secondary-color: color("blue", "darken-3") !default;
 @import "materialize";
 @import "material_icons";
 @import "markdown";

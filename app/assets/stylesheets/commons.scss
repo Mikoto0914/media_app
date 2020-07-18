@@ -5,25 +5,33 @@ body {
   position: relative;
   padding-bottom: 120px;
   box-sizing: border-box;
+  background-color: #f0fff9 ;
 }
 
-footer{
+footer {
   width: 100%;
   position: absolute;
   bottom: 0;
 }
 
-.nav-wrapper{
+.nav-wrapper {
   margin: 0 auto;
   max-width: 1280px;
   width: 70%;
 }
 
-.font-bold{
+.font-bold {
   font-weight: bold; 
 }
 
-#header-area{
+.chip {
+  font-family: sans-serif;
+  font-weight: bold; 
+}
+
+#header-area {
+  font-family: "Comic Sans MS",sans-serif;
+  background-color: transparent;
   a{
     text-decoration:none;
   }
@@ -32,19 +40,34 @@ footer{
     text-decoration: none;
   }
   
-  .font-bold{
+  .font-bold {
     font-weight: bold; 
     color: #42a5f5;
   }
 }
 
-#rank-list-area{
+#rank-list-area {
   .rank-lyout{
     padding-left: 10px;
   }
   
-  .font-bold{
+  .font-bold {
     font-weight: bold; 
     color: #42a5f5;
   }
+}
+
+#parallax-area {
+  h1 {
+    font-family: "Comic Sans MS", "cursive", "Impact", serif;
+    .material-icons {
+      margin-right: -7px;
+      vertical-align: -7px;
+    }
+      
+    }
+}
+
+#slider-area{
+  min-width: 250px;
 }

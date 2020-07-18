@@ -45,18 +45,9 @@
       <% end %>
   
       <h5 class="red-text text-darken-2">アカウント削除</h5>
-      <button data-target="modal1" class="btn modal-trigger red lighten-2">削除する</button>
-      
-      <div id="modal1" class="modal">
-        <div class="modal-content">
-          <h4><span class="red-text text-darken-2">本当に削除しますか？</span></h4>
-          <p>アカウントを削除するとユーザ情報が全て削除されます。この処理は取り消しできません。</p>
-        </div>
-        <div class="modal-footer">
-          <%= button_to "はい", registration_path(resource_name),class:"waves-light btn red lighten-2", method: :delete  %>
-        </div>
-      </div>
-  
+      <button data-target="modal-tgt" class="btn modal-trigger red lighten-2">削除する</button>
+
+      <%= render partial: "commons/modal", locals: { target: registration_path(resource_name) } %>
     </div>
   </div>
 </div>
