@@ -5,10 +5,10 @@ $(window).on('load', function() {
   $('.modal').modal();
   $('.slider').slider({ height: 250 });
   $('.sidenav').sidenav();
-  $('.carousel.carousel-slider').carousel({
-    fullWidth: true
-  });
   $('.fixed-action-btn').floatingActionButton({
     toolbarEnabled: true
+  });
+  $(document).ready(function(){
+    $('.parallax').parallax();
   });
 });

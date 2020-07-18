@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.search(params[:search]).page(params[:page]).per(20)
+    @posts = Post.where(publish_flg: true).search(params[:search]).page(params[:page]).per(20)
   end
 
   def new

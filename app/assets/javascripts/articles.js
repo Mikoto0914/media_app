@@ -46,7 +46,11 @@ $(window).on("load", function() {
   $("#post_thumbnail_image").on("change", function(e){
     $(".thumbnail").css("background-image",`url(${window.URL.createObjectURL(e.target.files[0])})`);
   })
-    
+  
+  // 編集ページに遷移したときにサムネ画像を読み込み表示させる
+  if($("#header").attr("action") == "posts#edit"){
+    $(".thumbnail").css("background-image",`url(${$("#header").attr("thumbnail_image")})`);
+  }
 });
 
 //出力文字数を制限する
