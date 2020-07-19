@@ -2,6 +2,15 @@ class UsersController < ApplicationController
   
   before_action :authenticate_user!, only: [:drafts, :favorite, :profile_edit]
   
+  def new_guest
+    user = User.find_or_create_by!(email: "guest@example.com") do |user|
+      user.name = "guest"
+      user.password = SecureRandom.urlsafe_base64
+    end
+    sign_in user
+    redirect_to root_path, notice: "ゲストユーザーとしてログインしました"
+  end
+  
   def show
     @user = User.find_by(id: params[:id])
     @posts_latest = article_extraction(params[:id], true)

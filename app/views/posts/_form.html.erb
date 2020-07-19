@@ -1,7 +1,8 @@
 <!--記事編集フォーム-->
 <div id="header" action="<%= "#{controller.controller_name}##{controller.action_name}" %>"
   <% if "#{controller.controller_name}##{controller.action_name}" == "posts#edit"%>
-    thumbnail_image ="<%= post.thumbnail_image %>"<% end %>></div>
+    thumbnail_image ="<%= post.thumbnail_image %>"<% end %>>
+</div>
 <div id="post-form-area">
   <%= form_for post, html: { id: "ajax-form" }, local: true do |f| %>
     <div class="row article_frame">
