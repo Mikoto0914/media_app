@@ -4,23 +4,19 @@
       <img src="/book-bindings-3176776_1920.jpg">
     </div>
   </div>
+  <h1 class="center-align">Blog Serv<i class="material-icons large">create</i>ce</h1>
   <div class="section light-blue lighten-1">
     <div class="row container">
-      <div class="nav-content container">
+      <div class="nav-content">
         <div class="center-align white-text">
-          <h1 class="center-align">Blog Serv<i class="material-icons medium">create</i>ce</h1>
-          <p>本サービスはポートフォリオとして作成したメディア系のブログサービスです。</p>
-          <p>下記がアカウント情報となりますので、自由にログインしてみてください。</p>
+          <p>本Webサービスはポートフォリオとして作成したメディア系のブログサービスです。</p>
+          <p>下記がゲストアカウントとなりますので、自由にログインしてみてください。</p>
           <p>個人情報などは書き込まないようにお願い致します。</p>
-          <br>
-          <p><strong>管理者ユーザー</strong></p>
-          <p>メールアドレス: admin@example.com</p>
-          <p>パスワード: password</p>
-          <br>
-          <p><strong>非管理者ユーザー</strong></p>
-          <p>メールアドレス: normal@example.com</p>
-          <p>パスワード: password</p>
-          <br>
+          <i class="material-icons medium">account_circle</i>
+          <h5>- guest user -</h5>
+          <%= link_to users_guest_sign_in_path, class: "btn-large waves-effect waves-light", method: :post do %>
+            <i class="material-icons left">send</i>quick login
+          <% end %>
         </div>
       </div>
     </div>
