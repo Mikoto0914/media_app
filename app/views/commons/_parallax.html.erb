@@ -1,0 +1,24 @@
+<div id="parallax-area">
+  <div class="parallax-container">
+    <div class="parallax">
+      <img src="/book-bindings-3176776_1920.jpg">
+    </div>
+  </div>
+  <h1 class="center-align">Blog Serv<i class="material-icons large">create</i>ce</h1>
+  <div class="section light-blue lighten-1">
+    <div class="row container">
+      <div class="nav-content">
+        <div class="center-align white-text">
+          <p>本Webサービスはポートフォリオとして作成したメディア系のブログサービスです。</p>
+          <p>下記がゲストアカウントとなりますので、自由にログインしてみてください。</p>
+          <p>個人情報などは書き込まないようにお願い致します。</p>
+          <i class="material-icons medium">account_circle</i>
+          <h5>- guest user -</h5>
+          <%= link_to users_guest_sign_in_path, class: "btn-large waves-effect waves-light", method: :post do %>
+            <i class="material-icons left">send</i>quick login
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

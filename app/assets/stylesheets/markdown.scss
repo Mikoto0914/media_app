@@ -52,8 +52,9 @@
   }
   
   .highlight{
-    max-width: 520px;
+    max-width: 100vw;
     padding-top: 20px;
+    overflow: scroll;
     
     span{
       font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
@@ -66,7 +67,6 @@
     pre{
       margin: 0;
       padding: 0;
-      overflow: scroll;
       white-space: pre;
       font-size: 0.9em;
       line-height: 1.5;

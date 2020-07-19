@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.search(params[:search]).page(params[:page]).per(20)
+    @posts = Post.where(publish_flg: true).search(params[:search]).page(params[:page]).per(20)
   end
 
   def new
@@ -85,7 +85,7 @@ class PostsController < ApplicationController
   def markdown
     @body = params[:body]
   end
-
+  
   private
   def post_params
     params.require(:post).permit(:user_id, :title, :content, :thumbnail_image, :publish_flg)

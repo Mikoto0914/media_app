@@ -14,10 +14,11 @@ Rails.application.routes.draw do
     sessions:      "users/sessions"
   }
 
-  get  "users/profile_edit" => "users#profile_edit"
-  get  "users/draft"        => "users#draft"
-  get  "users/favorite"     => "users#favorite"
-  get  "users/:id"          => "users#show"
+  post "users/guest_sign_in"  => "users#new_guest"
+  get  "users/profile_edit"   => "users#profile_edit"
+  get  "users/draft"          => "users#draft"
+  get  "users/favorite"       => "users#favorite"
+  get  "users/:id"            => "users#show"
   
   Rails.application.routes.draw do
   mount RailsAdmin::Engine => "/admin", as: "rails_admin"
