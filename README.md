@@ -1,8 +1,8 @@
-#  ブログサービス
+#  Qiita風ブログサービス
 
 ![top_page](https://user-images.githubusercontent.com/57606507/87867878-4072d400-c9cc-11ea-8e34-67f511c75822.png)
 
-## App URL　**https://media-application.com** 
+## App URL　~~https://media-application.com~~ 
 
 記事を作成・閲覧・管理する機能を提供するWebサービスです。普通のブログサービスと同様の機能が実装されています。
 ユーザ登録の有無で利用できる機能が異なります。利用できる機能は以下のようになります。
