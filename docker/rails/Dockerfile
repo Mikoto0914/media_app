@@ -6,16 +6,12 @@ RUN apt-get update -qq && \
   libpq-dev \
   nodejs \
   vim \
-  default-mysql-client 
+  default-mysql-client
 
 WORKDIR /app
 
-ADD Gemfile .
-ADD Gemfile.lock .
-RUN bundle install -j4
+COPY Gemfile* /app
 
-ADD . /app
+RUN bundle install
 
-
-EXPOSE 3000
-
+COPY . /app
