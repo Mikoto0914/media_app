@@ -9,11 +9,11 @@
 
 ユーザ登録(無)：記事一覧表示、記事詳細表示、記事検索、タグ検索  
 ユーザ登録(有)：すべての機能をご利用できます。
- 
+
 ## 使用技術
-- Ruby version: 2.5.8 (x86_64-linux)  
-- Rails version: 5.2.4.1  
-- Docker 
+- Ruby version: 2.5.8 (x86_64-linux)
+- Rails version: 5.2.4.1
+- Docker
 - AWS(EC2,VPC,Route 53,Certificate Manager)
 
 <p align="center">
@@ -25,12 +25,12 @@
 ## アプリ機能
 
 ### 記事関連
-- 一覧表示機能  
-- 詳細表示機能 
-- 投稿機能 
+- 一覧表示機能
+- 詳細表示機能
+- 投稿機能
 - 編集機能
 - サムネイル画像設定機能
-- プレビュー機能
+- リアルタイムプレビュー機能
 - 下書き機能
 - ストック機能
 - いいね機能
@@ -78,6 +78,19 @@
 ### 10. コメント機能
 ![コメント機能](https://user-images.githubusercontent.com/57606507/86514425-f5de4d00-be4c-11ea-8087-1b82e1a79db5.png)
 
+## 構築方法
+1. コンテナをビルド&立ち上げ
+```
+docker compose build
+docker compose up
+```
+2. DB作成&反映
+```
+docker compose exec app rails db:create
+docker compose exec app rails db:migrate
+docker compose exec app rails db:seed
+
+```
+
 ## ライセンス
 MIT
-
