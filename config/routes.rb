@@ -31,4 +31,7 @@ Rails.application.routes.draw do
     post     "posts/:id/post_up"  => "posts#post_up"
   end
   
+  namespace :api, format: 'json' do
+    get 'presigned_url', to: 's3#presigned_url'
+  end
 end
