@@ -2,12 +2,50 @@ $(window).on("load", function() {
 
   // 保存機能
   function ajaxAutoSave() {
-     $("#ajax-form").submit();
+
+    const target = document.getElementById('input-file');
+    const file = target.files[0]
+
+    if(file != undefined){
+      console.log(file);
+
+      $.ajax({
+        url: "/api/presigned_url",
+        type: "get",
+        dataType: "json"
+      }).done(function(presignedObject){
+
+        const formData = new FormData()
+        for (const key in presignedObject.fields) {
+            formData.append(key, presignedObject.fields[key])
+        }
+        formData.append('file', file)
+
+        const ret = fetch(presignedObject.url, {
+          method: 'POST',
+          headers: { Accept: 'multipart/form-data' },
+          body: formData,
+        })
+
+        // $.ajax({
+        //   url: presignedObject.url,
+        //   type: "post",
+        //   headers: { Accept: 'multipart/form-data' },
+        //   processData: false,
+        //   dataType: 'XML',
+        //   data: formData
+        // })
+
+        console.log(presignedObject);
+        console.log(ret);
+      });
+    }
+    $("#ajax-form").submit();
   }
   
   // 5秒後に自動保存
-  var timer_id = setTimeout(ajaxAutoSave, 5000);
-  clearTimeout(timer_id);
+  // var timer_id = setTimeout(ajaxAutoSave, 5000);
+  // clearTimeout(timer_id);
   
   //保存、プレビューボタン押下時保存
   $("#article_save").on("click",function() {
@@ -19,10 +57,10 @@ $(window).on("load", function() {
      ajaxAutoSave();
   });
   
-  $("#ajax-form > .article_frame").on("keyup",function() {
-    clearTimeout(timer_id);
-    timer_id = setTimeout(ajaxAutoSave, 5000);
-  });
+  // $("#ajax-form > .article_frame").on("keyup",function() {
+  //   clearTimeout(timer_id);
+  //   timer_id = setTimeout(ajaxAutoSave, 5000);
+  // });
   
   // プレビュー機能
   function buildPreview() {

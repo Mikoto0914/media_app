@@ -11,7 +11,7 @@
         
         <label>
           <div class="thumbnail">サムネ画像を選択</div>
-          <%= f.file_field :thumbnail_image, value: post.thumbnail_image, class: "input-thumb" %>
+          <%= f.file_field :thumbnail_image, value: post.thumbnail_image, class: "input-thumb", id: "input-file" %>
         </label>
         <div class="input-wrapper">
           <%= f.label :title, "投稿タイトル" %>
